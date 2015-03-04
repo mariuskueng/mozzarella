@@ -2,10 +2,10 @@ Router.configure({
   layoutTemplate: 'layout'
 });
 
-Router.map(function() {
-  this.route('home', {
-    path: '/',
-    template: 'home'
-  });
+Router.route('/', function () {
+  if (Meteor.user()) {
+    this.render('appView');
+  } else {
+    this.render('homeView');
+  }
 });
-

@@ -5,11 +5,9 @@
 </head>
 
 <body>
-  <div class="row">
-    <div class="col-md-4">4</div>
-    <div class="col-md-8">8</div>
-  </div>
-  <p>asfd</p>
+  {{#if currentUser}}
+    {{> navigation}}
+  {{/if}}
 </body>
 
 <template name="layout">
