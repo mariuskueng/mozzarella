@@ -1,2 +1,5 @@
 standard-app-packages
 iron:router
+accounts-ui
+accounts-password
+sahina:flatui

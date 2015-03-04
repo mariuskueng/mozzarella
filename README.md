@@ -1,3 +1,7 @@
 # webeC
 
-## "What's in my fridge" Liste
+Semesterprojekt Web Engineering
+
+## Dokumentation
+
+[Dokumentation](documentation/README.md)
