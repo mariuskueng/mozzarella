@@ -9,4 +9,4 @@ before_script:
 notifications:
   email: false
 script:
-  - JASMINE_SINGLE_RUN=1 JASMINE_BROWSER=Firefox meteor --test --single-run
+  - JASMINE_SINGLE_RUN=1 JASMINE_BROWSER=Firefox meteor --test
