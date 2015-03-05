@@ -7138,7 +7138,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 0
+              "value": 1
             },
             "timeout": {
               "type": "constant",
@@ -11874,11 +11874,11 @@ var packageMetadata = {
                 },
                 "pid": {
                   "type": "constant",
-                  "value": 6666
+                  "value": 7985
                 },
                 "fout": {
                   "type": "constant",
-                  "value": 37
+                  "value": 38
                 },
                 "child": {
                   "type": "object",
@@ -11897,7 +11897,7 @@ var packageMetadata = {
                     },
                     "pid": {
                       "type": "constant",
-                      "value": 6666
+                      "value": 7985
                     },
                     "stdin": {
                       "type": "null",
@@ -12029,7 +12029,7 @@ var packageMetadata = {
       "members": {
         "autoupdateVersion": {
           "type": "constant",
-          "value": "TR6eRgMmDqqKGuiHS"
+          "value": "aM4g3BCsHzAWt6eNN"
         },
         "autoupdateVersionRefreshable": {
           "type": "constant",

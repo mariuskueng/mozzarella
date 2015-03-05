@@ -3,12 +3,10 @@ node_js:
   - "0.10"
 before_install:
   - curl https://install.meteor.com | /bin/sh
-
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 notifications:
   email: false
-
 script:
-  - JASMINE_BROWSER=Firefox meteor --test --single-run
+  - JASMINE_SINGLE_RUN=1 JASMINE_BROWSER=Firefox meteor --test --single-run
