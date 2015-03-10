@@ -1,0 +1,13 @@
+## Inhalt
+- **Motivation**
+    - Was für ein Problem soll diese Applikation lösen?
+- **Use Cases**
+    - Akteure
+    - Handlungen
+- **Conceptual Data Model**
+    - Entitäten
+    - Beziehungen
+    - Attribute
+- **Operations**
+    - Actor
+    - Operations
