@@ -15,8 +15,11 @@ html, body{
 }
 
 body {
-  background-color: $gray;
   font-size: 62.5%;
+}
+
+.container .login-link-text {
+  font-size: 3em;
 }
 
 .navbar {
@@ -46,6 +49,7 @@ body {
   }
 
   .lists {
+    background-color: $gray;
     font-size: 2.4em;
     max-height: 800px;
     overflow-y: scroll;
@@ -73,6 +77,7 @@ body {
   }
 
   .items {
+    background-color: $gray;
     height: 100%;
     padding: 20px 30px;
   }
