@@ -1,19 +1,82 @@
 <template name="appView">
-  <div class="row app">
-    <aside class="col-md-4">
+  <div class="app">
+    <div class="notifications bg-danger col-md-12">
+        <p>2 Items are over due! Consume them ASAP!</p>
+    </div>
+    <aside class="lists col-md-4">
       <ul class="list-group">
-        <li class="list-group-item">Fleisch</li>
-        <li class="list-group-item">Gemüse</li>
-        <li class="list-group-item">Käse</li>
-        <li class="list-group-item">Früchte</li>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
+        <a class="list-group-item active"><i class="fa fa-bars"></i>Käse</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Käse</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Käse</a>
+        <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
       </ul>
     </aside>
-    <section class="col-md-8">
-      <p>Mozzarella</p>
-      <p>Hackfleisch</p>
-      <p>Limetten</p>
-      <p>Schinkenwürfeli</p>
-      <p>Poulet Geschnetzeltes</p>
+    <section class="items col-md-8">
+      <div class="row">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Add new item">
+          </div>
+        </form>
+      </div>
+      <div class="item-wrapper row">
+        <div class="item col-md-12">
+          <p>
+            <span>Schinken</span>
+            <label class="label label-danger pull-right">08.03.2015</label>
+            <label class="label label-primary pull-right">3</label>
+          </p>
+        </div>
+        <div class="item-detail-wrapper">
+          <div class="item col-md-12">
+            <p>
+              <span>Mozzarella Kugel</span>
+              <label class="label label-danger pull-right">15.04.2015</label>
+              <label class="label label-primary pull-right">1</label>
+            </p>
+          </div>
+          <div class="item col-md-12">
+            <p>
+              <span>Mozzarella Block</span>
+              <label class="label label-danger pull-right">08.03.2015</label>
+              <label class="label label-primary pull-right">2</label>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item-wrapper row">
+        <div class="item col-md-12">
+          <p>
+            <span>Chips</span>
+            <label class="label label-danger pull-right">08.03.2015</label>
+            <label class="label label-primary pull-right">3</label>
+          </p>
+        </div>
+        <div class="item-detail-wrapper">
+          <div class="item col-md-12">
+            <p>
+              <span>Hackfleisch 500g</span>
+              <label class="label label-danger pull-right">15.04.2015</label>
+              <label class="label label-primary pull-right">1</label>
+            </p>
+          </div>
+          <div class="item col-md-12">
+            <p>
+              <span>Hackfleisch 300g</span>
+              <label class="label label-danger pull-right">15.04.2015</label>
+              <label class="label label-primary pull-right">1</label>
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>

@@ -1,16 +1,107 @@
+//*****************
+// Variables
+//*****************
+
+$white: #fff;
+$gray: #777;
+$red: #e74c3c;
+
+//*****************
+// Global Overrides
+//*****************
+
+html, body{
+  height:100%;
+}
+
 body {
-  background-color: #FFF;
+  background-color: $gray;
+  font-size: 62.5%;
+}
+
+.navbar {
+  margin-bottom: 0;
 }
 
 .home {
   img {
-    width: 100%;
     display: block;
+    width: 100%;
   }
 }
 
+//*****************
+// App Styles
+//*****************
+
 .app {
-  aside {
-    background-color: #f8f8f8;
+
+  nav .login-link-and-dropdown-list {
+    margin-top: 10px;
+  }
+
+  .notifications {
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .lists {
+    font-size: 2.4em;
+    max-height: 800px;
+    overflow-y: scroll;
+    padding: 0 0 20px;
+
+    .list-group-item {
+      border-radius: 0;
+    }
+
+    i {
+      margin: 0 10px;
+    }
+  }
+
+  .navbar-form {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .navbar-form,
+  .form-group,
+  .form-control {
+    width: 100%;
+  }
+
+  .items {
+    height: 100%;
+    padding: 20px 30px;
+  }
+
+  .item {
+    background-color: $white;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 5px 10px 0;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .item-detail-wrapper .item {
+    border-bottom: 1px solid $gray;
+    border-radius: 0;
+    margin-bottom: 0;
+
+    &:first-child {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      margin-bottom: 10px;
+    }
   }
 }
