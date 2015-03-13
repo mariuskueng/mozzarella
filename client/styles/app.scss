@@ -10,8 +10,9 @@ $red: #e74c3c;
 // Global Overrides
 //*****************
 
-html, body{
-  height:100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
@@ -20,10 +21,6 @@ body {
 
 .container .login-link-text {
   font-size: 3em;
-}
-
-.navbar {
-  margin-bottom: 0;
 }
 
 .home {
@@ -37,37 +34,64 @@ body {
 // App Styles
 //*****************
 
-.app {
+.navbar {
+  margin-bottom: 0;
 
-  nav .login-link-and-dropdown-list {
+  .login-link-and-dropdown-list {
     margin-top: 10px;
   }
+}
 
-  .notifications {
-    padding-top: 10px;
-    text-align: center;
-  }
+.notifications {
+  padding-top: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.app {
+  height: 100%;
+  margin-top: 53px;
+  position: relative;
+  width: 100%;
 
   .lists {
-    background-color: $gray;
+    background-color: $white;
+    bottom: 0;
     font-size: 2.4em;
-    max-height: 800px;
-    overflow-y: scroll;
+    left: 0;
+    overflow: hidden;
     padding: 0 0 20px;
+    position: absolute;
+    top: 0;
+
+    .list-wrapper {
+      bottom: 0;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    // .list-group {
+    //
+    // }
 
     .list-group-item {
+      border: 0;
       border-radius: 0;
     }
 
     i {
-      margin: 0 10px;
+      margin: 0 10px 0 0;
     }
   }
 
   .navbar-form {
+    padding-bottom: 20px;
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 20px;
   }
 
   .navbar-form,
@@ -78,8 +102,25 @@ body {
 
   .items {
     background-color: $gray;
+    bottom: 0;
     height: 100%;
+    overflow: hidden;
     padding: 20px 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .items-wrapper {
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 97%;
   }
 
   .item {
