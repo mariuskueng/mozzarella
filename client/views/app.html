@@ -1,10 +1,27 @@
 <template name="appView">
-  <div class="notifications bg-danger col-md-12">
-      <p>2 Items are over due! Consume them ASAP!</p>
-  </div>
+<!--   <div class="notifications bg-danger col-md-12">
+    <p>2 Items are over due! Consume them ASAP!</p>
+</div> -->
+  {{> settings}}
   <div class="app">
     <aside class="lists col-md-4">
       <div class="list-wrapper">
+        <nav>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              {{ username }}
+              <span class="caret"></span>
+            </button>
+            {{> loginButtons}}
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation" class="dropdown-header">Mozzarella</li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#settings-modal-dialog">Settings</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
         <ul class="list-group">
           <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
           <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
@@ -19,6 +36,7 @@
           <a class="list-group-item"><i class="fa fa-bars"></i>Käse</a>
           <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
         </ul>
+        <button class="btn btn-default fa fa-plus" type="button"></button>
       </div>
     </aside>
     <section class="items col-md-8">

@@ -1,10 +1,13 @@
-Template.home.helpers({
+Template.appView.helpers({
   myAppVariable: function() {
     return Session.get('myAppVariable');
+  },
+  username: function() {
+    return Meteor.user().emails[0].address;
   }
 });
 
-Template.home.events({
+Template.appView.events({
   'click button': function(event, template) {
     Session.set('myAppVariable', Math.floor(Math.random() * 11));
   }
