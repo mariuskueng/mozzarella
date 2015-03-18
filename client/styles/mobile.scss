@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  .lists {
+    display: none;
+  }
+
+  .items {
+    z-index: 100;
+  }
+
+  .app {
+    .navbar-form {
+      margin: 0;
+    }
+  }
+}
