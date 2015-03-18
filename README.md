@@ -1,7 +1,7 @@
-# webeC
+# Mozzarella
 
-Semesterprojekt Web Engineering
+If you want 🍕 you need mozzarella. Go get some mozzarella.
 
-## Dokumentation
+## Documentation
 
-[Dokumentation](documentation/README.md)
+[Documentation](documentation/README.md)
