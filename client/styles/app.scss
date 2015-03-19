@@ -74,9 +74,9 @@ body {
       top: 0;
     }
 
-    // .list-group {
-    //
-    // }
+    .list-group {
+      margin-bottom: 100px;
+    }
 
     .list-group-item {
       border: 0;
@@ -85,6 +85,14 @@ body {
 
     i {
       margin: 0 10px 0 0;
+    }
+
+    .add-list {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0;
     }
   }
 
