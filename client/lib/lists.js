@@ -6,10 +6,21 @@ Template.listsView.helpers({
   },
   username: function () {
     return Meteor.user().emails[0].address;
+  },
+  lists: function() {
+    return Lists.find();
   }
 });
-Template.listsView.events({
-  'click .add-list': function (event, template) {
+Template.addListView.events({
+  'submit .add-list': function (event, template) {
+    // This function is called when the new item form is submitted
+    var text = event.target.text.value;
+    Meteor.call("addList", text);
 
+    // Clear form
+    event.target.text.value = "";
+
+    // Prevent default form submit
+    return false;
   }
 });
