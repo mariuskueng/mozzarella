@@ -1,10 +1,13 @@
 <template name="itemsView">
   <div class="items-wrapper">
-    <form class="navbar-form navbar-left" role="search">
+    <form class="new-item navbar-form navbar-left" role="">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Add new item">
+        <input type="text" name="text" class="form-control" placeholder="Add new item">
       </div>
     </form>
+    {{#each items}}
+      <p>{{title}}</p>
+    {{/each}}
     <div class="item-wrapper">
       <div class="item col-md-12">
         <p>
