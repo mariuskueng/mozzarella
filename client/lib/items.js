@@ -1,5 +1,11 @@
 Meteor.subscribe('Items');
 
+Template.itemsView.helpers({
+  items: function() {
+    return Items.find({createdBy: Meteor.user()._id}, {sort:{createdAt: -1}});
+  }
+});
+
 Template.itemsView.events({
   "submit .new-item": function (event) {
     // This function is called when the new item form is submitted
@@ -14,11 +20,5 @@ Template.itemsView.events({
   },
   "click .hide-completed": function () {
     Session.set("hideCompleted", ! Session.get("hideCompleted"));
-  }
-});
-
-Template.itemsView.helpers({
-  items: function() {
-    return Items.find();
   }
 });

@@ -1,3 +1,3 @@
 Meteor.publish('Items', function() {
-  return Items.find();
+  return Items.find({createdBy: this.userId});
 });

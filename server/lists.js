@@ -1,3 +1,3 @@
 Meteor.publish('Lists', function() {
-  return Lists.find();
+  return Lists.find({createdBy: this.userId});
 })

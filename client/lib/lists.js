@@ -8,7 +8,7 @@ Template.listsView.helpers({
     return Meteor.user().emails[0].address;
   },
   lists: function() {
-    return Lists.find();
+    return Lists.find({createdBy: this.userId}, {sort:{createdAt: -1}});
   }
 });
 Template.addListView.events({

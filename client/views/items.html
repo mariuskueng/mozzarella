@@ -6,7 +6,13 @@
       </div>
     </form>
     {{#each items}}
-      <p>{{title}}</p>
+      <div class="item col-md-12">
+        <p>
+          <span>{{title}}</span>
+          <label class="label label-danger pull-right">08.03.2015</label>
+          <label class="label label-primary pull-right">3</label>
+        </p>
+      </div>
     {{/each}}
     <div class="item-wrapper">
       <div class="item col-md-12">
