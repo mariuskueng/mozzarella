@@ -2,7 +2,9 @@
   <div class="list-wrapper">
     <nav>
       <div class="dropdown">
+
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          <i class="fa fa-user"></i>
           {{ username }}
           <span class="caret"></span>
         </button>
@@ -18,20 +20,10 @@
     </nav>
     <ul class="list-group">
       {{#each lists}}
-        <a class="list-group-item"><i class="fa fa-bars"></i>{{title}}</a>
+        <a class="list-group-item" href="/lists/{{_id}}"><i class="fa fa-bars"></i>{{title}}</a>
+        {{else}}
+        <p>There' are no lists yet. Add one below.</p>
       {{/each}}
-      <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
-      <a class="list-group-item active"><i class="fa fa-bars"></i>Käse</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Käse</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Fleisch</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Gemüse</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Käse</a>
-      <a class="list-group-item"><i class="fa fa-bars"></i>Früchte</a>
     </ul>
     <button class="add-list-modal btn btn-default col-md-4" type="button">
       <a href="#" data-toggle="modal" data-target="#add-list-modal-dialog"><i class="fa fa-plus"></i></a>
