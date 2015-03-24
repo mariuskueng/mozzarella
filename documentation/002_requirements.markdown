@@ -59,7 +59,7 @@ Use Case				| Invite user to existing list
 **Description** 		| User shares a list with other users.
 **Actors**	   		| User
 **Preconditions**	| The invited user exists (username).
-**Basic Flow**		| User clicks the "Share list" button and enters the username of a user.
+**Basic Flow**		| User clicks the "share list" button, enters username.
 **Alt. Flow**			| -
 **Postconditions**	| List is now shared.
 **Notes**				| -
@@ -67,13 +67,13 @@ Use Case				| Invite user to existing list
 ### Usecase: Add item to list
 
 Use Case				| Add item to list
---------------------|--------------
+--------------------|------------------------------------------------
 **Description** 		| A user adds a new item to an existing list.
 **Actors**	   		| User
 **Preconditions**	| UC: Login, UC: Add new list
 **Basic Flow**		| User fills in the "new item" input field an submits it.
 **Alt. Flow**			| User adds a **due date** and a **piece amount** to the new item.
-**Postconditions**	| Item is now added to the existing list and visible to the user. Add amount of pieces to an existing item.
+**Postconditions**	| Item is now added to the existing list and visible to the user.
 **Notes**				| -
 
 ### Usecase: Add due date to an existing item
@@ -83,11 +83,10 @@ Use Case				| Add due date to an existing item
 **Description** 		| A user adds a due date to an existing item.
 **Actors**	   		| User
 **Preconditions**	| UC: Login, UC: Add new item
-**Basic Flow**		| User hovers over an item and clicks the "add due date (clock)" button
+**Basic Flow**		| User clicks the "add due date (clock)" button.
 **Alt. Flow**			| User double clicks the current due date and changes it.
-Due date can be null.
 **Postconditions**	| -
-**Notes**				| -
+**Notes**				| Due date can be null.
 
 ### Usecase: Add amount of pieces to an existing item
 
@@ -99,7 +98,7 @@ Use Case				| Add amount of pieces to an existing item
 **Basic Flow**		| User clicks on the arrows on the amount element.
 **Alt. Flow**			| If no amount is given, 1 is the default amount.
 **Postconditions**	| -
-**Notes**				| If the user adds a new item, a piece is automatically added with a reference to its item.
+**Notes**				| A piece is automatically added with a reference to its item.
 
 ### Usecase: Add due date to a piece
 Use Case				| Add due date to a piece
@@ -107,7 +106,7 @@ Use Case				| Add due date to a piece
 **Description** 		| A user adds a due date to a piece of an item.
 **Actors**	   		| User
 **Preconditions**	| UC: Login, UC: Add new item
-**Basic Flow**		| User opens item view and changes due date UC: Add due date to an existing item.
+**Basic Flow**		| User opens item view and changes due date.
 **Alt. Flow**			| -
 **Postconditions**	| -
 **Notes**				| -
@@ -118,18 +117,20 @@ Use Case				| Show notifications for over due items
 **Description** 		| The app shows the user which items are over due.
 **Actors**	   		| Meteor (Backend)
 **Preconditions**	| UC: Add new item
-**Basic Flow**		| Meteor checks if any items of a user are over due and adds them to a separate lists where all over due items are visible.
-**Alt. Flow**			| Meteor shows the number of over due items in the over due list title.
+**Basic Flow**		| Meteor adds all over due items to a generated list.
+**Alt. Flow**			| Meteor shows the amount in over due list title.
 **Postconditions**	| -
 **Notes**				| -
 
 ### Usecase: Sort items by due date
 Use Case				| Sort items by due date
 --------------------|--------------
-**Description** 		| The app sorts all items in each list by its due date
+**Description** 		| The app sorts all items in each list by its due date.
 **Actors**	   		| Meteor (Backend)
 **Preconditions**	| UC: Add new item
 **Basic Flow**		| Old items are on top, new items below.
 **Alt. Flow**			| -
 **Postconditions**	| -
 **Notes**				| -
+
+
