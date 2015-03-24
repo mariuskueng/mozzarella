@@ -6,6 +6,10 @@
 
 **Mozzarella** is a collaborative shopping-/what's in your fridge list app. Mozzarella aims to help the user keep track of what groceries he has in his fridge, which of these he should consume and what he needs to buy soon. Because of shared lists it's able to keep track of an entire household.
 
+The idea originates from the problem that a family has several frigdes, freezers and kitchen cabinets with loads of stuff in it. It's super easy to loose track of what's already at home and should be consumed next. Otherwise you throw away way to much groceries.
+
+With this you can easily save money and help the environment by not throwing away food.
+
 ## Features (v1)
 
 In the first version the following features will be implemented:
