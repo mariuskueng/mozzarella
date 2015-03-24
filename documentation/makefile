@@ -11,14 +11,14 @@ YAMLMETADATA="metadata.yaml"
 
 # Build and Output
 BUILDDIR="build"
-DOCUMENTMARKDOWN="document.markdown"
-DOCUMENTPDF="document.pdf"
-DOCUMENTDOCX="document.docx"
+DOCUMENTMARKDOWN="documentation.markdown"
+DOCUMENTPDF="documentation.pdf"
+DOCUMENTDOCX="documentation.docx"
 
 PUBLISHDIR="publish"
 
 
-prepare: clean
+prepare:
 	@echo "Preparing ..."
 	@mkdir -p $(BUILDDIR)
 	@cat `find . -name "*.markdown" | sort` > $(BUILDDIR)/$(DOCUMENTMARKDOWN)
