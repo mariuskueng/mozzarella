@@ -4,11 +4,11 @@ Template.listsView.helpers({
   myAppVariable: function () {
     return Session.get('myAppVariable');
   },
-  username: function () {
-    return Meteor.user().emails[0].address;
+  user: function() {
+    return Meteor.user();
   },
   lists: function() {
-    return Lists.find({createdBy: Meteor.user()._id}, {sort:{createdAt: -1}});
+    return Lists.find({createdBy: Meteor.userId()}, {sort:{createdAt: -1}});
   }
 });
 Template.addListView.events({

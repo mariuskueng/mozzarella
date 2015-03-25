@@ -2,7 +2,7 @@ Meteor.subscribe('Items');
 
 Template.itemsView.helpers({
   items: function() {
-    return Items.find({createdBy: Meteor.user()._id}, {sort:{createdAt: -1}});
+    return Items.find({createdBy: Meteor.userId}, {sort:{createdAt: -1}});
   }
 });
 
