@@ -16,14 +16,6 @@ body {
   height: 100%;
 }
 
-body {
-  font-size: 62.5%;
-}
-
-.container .login-link-text {
-  font-size: 3em;
-}
-
 .home {
   img {
     display: block;
@@ -57,7 +49,6 @@ body {
   .lists {
     background-color: $white;
     bottom: 0;
-    font-size: 2.4em;
     left: 0;
     overflow: hidden;
     padding: 0 0 20px;
