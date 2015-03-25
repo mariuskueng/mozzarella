@@ -18,7 +18,7 @@ DOCUMENTDOCX="documentation.docx"
 PUBLISHDIR="publish"
 
 
-prepare:
+prepare: clean
 	@echo "Preparing ..."
 	@mkdir -p $(BUILDDIR)
 	@cat `find . -name "*.markdown" | sort` > $(BUILDDIR)/$(DOCUMENTMARKDOWN)
@@ -60,4 +60,4 @@ publish: pdf
 
 clean:
 	@echo "Cleaning up ..."
-	@rm -r $(BUILDDIR)
+	@rm -rf $(BUILDDIR)
