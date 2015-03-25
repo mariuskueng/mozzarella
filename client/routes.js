@@ -1,6 +1,14 @@
 // Global router config
 Router.configure({
-  loadingTemplate: 'loading'
+  loadingTemplate: 'loading',
+
+  // wait on the following subscriptions before rendering the page to ensure
+  // the data it's expecting is present
+  waitOn: function() {
+    return [
+      Meteor.subscribe('Lists')
+    ];
+  }
 });
 
 // simple route with
@@ -14,8 +22,9 @@ Router.map( function () {
   // name 'appView' that
   // matches '/' and automatically renders
   // template 'appView'
-  this.route('appView', {
-    path: '/',
+  this.route('listsView', {
+    path: '/lists/:_id',
+    template: 'appView',
     onBeforeAction: function () {
       if (!Meteor.userId()) {
         // if the user is not logged in, render the Login template
@@ -30,4 +39,23 @@ Router.map( function () {
       this.render();
     }
   });
+
+  this.route('appView', {
+    path: '/',
+    onBeforeAction: function () {
+      if (!Meteor.userId()) {
+        // if the user is not logged in, render the Login template
+        this.render('homeView');
+      } else {
+        // otherwise don't hold up the rest of hooks or our route/action function
+        // from running
+        this.next();
+      }
+    },
+    action: function() {
+      // returns the last user's list (MAGIC)
+      Router.go('listsView', Lists.findOne());
+    }
+  });
+
 });
