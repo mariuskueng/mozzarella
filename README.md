@@ -1,13 +1,14 @@
 # Mozzarella
 
-[![Build Status](https://travis-ci.org/mariuskueng/mozzarella.svg&branch=master)](https://travis-ci.org/mariuskueng/mozzarella)
+[![Build Status](https://travis-ci.org/mariuskueng/mozzarella.svg?branch=master)](https://travis-ci.org/mariuskueng/mozzarella)
 
 **Mozzarella 🍕** is a collaborative shopping-/what’s in your fridge list app. Mozzarella aims to help the user keep track of what groceries he has
 in his fridge, which of these he should consume and what he needs to buy soon. Because of shared lists it’s able to keep track of an entire household.
 
 ## Documentation
+**Mozzarella** is a student project for the CS module [webeC - Web Engineering](http://www.fhnw.ch/technik/modul/9076370) at the [University of Applied Sciences and Arts Northwestern Switzerland FHNW](http://www.fhnw.ch/homepage?set_language=en).
 
-[Documentation](https://github.com/mariuskueng/mozzarella/blob/master/documentation/publish/documentation.pdf)
+[👉 Project Documentation (PDF)](https://github.com/mariuskueng/mozzarella/blob/master/documentation/publish/documentation.pdf)
 
 ## Usage
 
