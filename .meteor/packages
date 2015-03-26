@@ -5,3 +5,5 @@ accounts-password
 sahina:flatui
 fourseven:scss
 fortawesome:fontawesome
+velocity:html-reporter
+sanjo:jasmine
