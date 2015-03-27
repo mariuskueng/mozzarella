@@ -20,7 +20,7 @@
     </nav>
     <ul class="list-group">
       {{#each lists}}
-        <a class="list-group-item" href="/lists/{{_id}}"><i class="fa fa-bars"></i>{{title}}</a>
+        <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-bars"></i>{{title}}</a></li>
         {{else}}
         <p>There' are no lists yet. Add one below.</p>
       {{/each}}

@@ -9,6 +9,14 @@ Template.listsView.helpers({
   },
   lists: function() {
     return Lists.find({createdBy: Meteor.userId()}, {sort:{createdAt: -1}});
+  },
+  isCurrentList: function (listId) {
+    var controller = Iron.controller();
+    var params = controller.getParams();
+    if (listId == params._id) {
+      return true;
+    }
+    return false;
   }
 });
 Template.addListView.events({
