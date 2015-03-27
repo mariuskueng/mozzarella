@@ -11,7 +11,7 @@
         {{> loginButtons}}
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
           <li role="presentation" class="dropdown-header">Mozzarella</li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="/about">About</a></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#settings-modal-dialog">Settings</a></li>
           <li role="presentation" class="divider"></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
@@ -19,8 +19,8 @@
       </div>
     </nav>
     <ul class="list-group">
-      <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/all"><i class="infinity text-info">∞</i> All</a></li>
-      <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
+      <li><a class="list-group-item {{#if isCurrentList 'all' }}active{{/if}}" href="/lists/all"><i class="infinity text-info">∞</i> All</a></li>
+      <li><a class="list-group-item {{#if isCurrentList 'over-due' }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
       {{#each lists}}
         <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a></li>
         {{else}}
