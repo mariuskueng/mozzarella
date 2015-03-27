@@ -19,10 +19,10 @@
       </div>
     </nav>
     <ul class="list-group">
-      <li><a class="list-group-item bg-info {{#if isCurrentList _id }}active{{/if}}" href="/lists/all"><i class="">∞</i> All</a></li>
-      <li><a class="list-group-item bg-danger {{#if isCurrentList _id }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle"></i>Over Due</a></li>
+      <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/all"><i class="infinity text-info">∞</i> All</a></li>
+      <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
       {{#each lists}}
-        <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-bars"></i>{{title}}</a></li>
+        <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a></li>
         {{else}}
         <p>There' are no lists yet. Add one below.</p>
       {{/each}}
