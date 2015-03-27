@@ -5,14 +5,35 @@ Template.itemsView.helpers({
     var controller = Iron.controller();
     var params = controller.getParams();
 
-    return Items.find({
-      createdBy: Meteor.userId(),
-      list: params._id
-    }, {
-      sort:{
-        createdAt: -1
-      }
-    });
+    if (params._id == 'all') {
+      return Items.find({
+        createdBy: Meteor.userId()
+      }, {
+        sort:{
+          createdAt: -1
+        }
+      });
+
+    } else if(params._id == 'over-due') {
+      var currentDate = new Date().getTime();
+      return Items.find({
+        createdBy: Meteor.userId(),
+        dueDate: { $lte: currentDate }
+      }, {
+        sort:{
+          createdAt: -1
+        }
+      });
+    } else {
+      return Items.find({
+        createdBy: Meteor.userId(),
+        list: params._id
+      }, {
+        sort:{
+          createdAt: -1
+        }
+      });
+    }
   }
 });
 
