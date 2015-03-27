@@ -1,11 +1,5 @@
 Meteor.subscribe('Lists');
 
-Template.listsView.onRendered(function() {
-  var controller = Iron.controller();
-  var params = controller.getParams();
-  Meteor.call('setCurrentList', params._id);
-});
-
 Template.listsView.helpers({
   myAppVariable: function () {
     return Session.get('myAppVariable');

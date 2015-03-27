@@ -30,6 +30,8 @@ Router.map( function () {
         // if the user is not logged in, render the Login template
         this.render('homeView');
       } else {
+        // set the current list before rendering
+        Meteor.call('setCurrentList', this.params._id);
         // otherwise don't hold up the rest of hooks or our route/action function
         // from running
         this.next();
@@ -53,8 +55,8 @@ Router.map( function () {
       }
     },
     action: function() {
-      // returns the last user's list (MAGIC)
-      Router.go('listsView', Lists.findOne());
+      // passes the last opened user's list (MAGIC)
+      Router.go('listsView', Lists.findOne({}, {fields: {_id: 1}, sort:{lastOpened: -1}}));
     }
   });
 
