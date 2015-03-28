@@ -42,6 +42,16 @@ Router.map( function () {
     }
   });
 
+  this.route('allView', {
+    path: '/lists/all',
+    template: 'appView'
+  });
+
+    this.route('overDueView', {
+    path: '/lists/over-due',
+    template: 'appView'
+  });
+
   this.route('appView', {
     path: '/',
     onBeforeAction: function () {
@@ -56,7 +66,13 @@ Router.map( function () {
     },
     action: function() {
       // passes the last opened user's list (MAGIC)
-      Router.go('listsView', Lists.findOne({}, {fields: {_id: 1}, sort:{lastOpened: -1}}));
+      var lastList = Lists.findOne({}, {fields: {_id: 1}, sort:{lastOpened: -1}});
+      if (lastList && lastList._id) {
+        Router.go('listsView', lastList);
+      } else {
+        Router.go('allView', 'all');
+      }
+
     }
   });
 
