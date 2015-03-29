@@ -1,6 +1,7 @@
 # Mozzarella
 
 [![Build Status](https://travis-ci.org/mariuskueng/mozzarella.svg?branch=master)](https://travis-ci.org/mariuskueng/mozzarella)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=mozzarella&style=flat)](https://mozzarella.herokuapp.com/)
 
 **Mozzarella 🍕** is a collaborative shopping-/what’s in your fridge list app. Mozzarella aims to help the user keep track of what groceries he has
 in his fridge, which of these he should consume and what he needs to buy soon. Because of shared lists it’s able to keep track of an entire household.
@@ -12,16 +13,16 @@ in his fridge, which of these he should consume and what he needs to buy soon. B
 
 ## Usage
 
-## Get it
-
-```
-$ git clone git@github.com:mariuskueng/mozzarella.git
-```
-
 ### Install Meteor if you haven't already
 
 ```
 $ curl https://install.meteor.com/ | sh
+```
+
+### Get it
+
+```
+$ git clone git@github.com:mariuskueng/mozzarella.git
 ```
 
 ### Run it
@@ -30,6 +31,9 @@ $ curl https://install.meteor.com/ | sh
 $ cd mozzarella
 $ meteor
 ```
+
+### Use it
+
 Open `http://localhost:3000` in your browser.
 
 ## Notes
