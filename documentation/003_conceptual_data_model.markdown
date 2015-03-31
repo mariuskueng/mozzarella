@@ -1,6 +1,6 @@
-# Software Architecture
+# Conceptual Data Model
 
-## Conceptual Data Model
+## Overview
 
 - Entities
 - Relationships

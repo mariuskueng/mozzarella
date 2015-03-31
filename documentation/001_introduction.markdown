@@ -19,3 +19,7 @@ In the first version the following features will be implemented:
 - **Due-date notifications** which inform you easily which items you should consume next.
 
 ## v2
+
+Future improvments:
+
+- **Item notifications** If a user makes a CRUD-action on items in a shared list all other users are getting notified about the recent changes.
