@@ -2,6 +2,8 @@
 
 ## Overview
 
+![ERD](figures/erd.png)
+
 - Entities
 - Relationships
 - Attributes
