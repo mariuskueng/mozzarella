@@ -1,38 +1,31 @@
 <template name="listsView">
-  <div class="list-wrapper">
-    <button type="button" class="navbar-toggle app-nav-button" data-toggle="offcanvas" data-target="#appNavMenu" data-canvas=".app">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <nav id="appNavMenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          <i class="fa fa-user"></i>
-          {{ user.username }}
-          <span class="caret"></span>
-        </button>
-        {{> loginButtons}}
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation" class="dropdown-header">Mozzarella</li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="/about">About</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#settings-modal-dialog">Settings</a></li>
-          <li role="presentation" class="divider"></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
-        </ul>
-      </div>
-      <ul class="list-group">
-        <li><a class="list-group-item {{#if isCurrentList 'all' }}active{{/if}}" href="/lists/all"><i class="infinity text-info">∞</i> All</a></li>
-        <li><a class="list-group-item {{#if isCurrentList 'over-due' }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
-        {{#each lists}}
-          <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a></li>
-          {{else}}
-          <p>There are no lists yet. Add one below with the plus button.</p>
-        {{/each}}
-      </ul>
-      <button class="add-list-modal btn btn-default col-md-3" type="button">
-        <a href="#" data-toggle="modal" data-target="#add-list-modal-dialog"><i class="fa fa-plus"></i></a>
+  <nav id="appNavMenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <i class="fa fa-user"></i>
+        {{ user.username }}
+        <span class="caret"></span>
       </button>
-    </nav>
-  </div>
+      {{> loginButtons}}
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation" class="dropdown-header">Mozzarella</li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/about">About</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#settings-modal-dialog">Settings</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+      </ul>
+    </div>
+    <ul class="list-group">
+      <li><a class="list-group-item {{#if isCurrentList 'all' }}active{{/if}}" href="/lists/all"><i class="infinity text-info">∞</i> All</a></li>
+      <li><a class="list-group-item {{#if isCurrentList 'over-due' }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
+      {{#each lists}}
+        <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a></li>
+        {{else}}
+        <p>There are no lists yet. Add one below with the plus button.</p>
+      {{/each}}
+    </ul>
+    <button class="add-list-modal btn btn-default col-md-3" type="button">
+      <a href="#" data-toggle="modal" data-target="#add-list-modal-dialog"><i class="fa fa-plus"></i></a>
+    </button>
+  </nav>
 </template>

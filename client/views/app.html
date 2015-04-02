@@ -1,15 +1,13 @@
 <template name="appView">
-<!--   <div class="notifications bg-danger col-md-12">
-    <p>2 Items are over due! Consume them ASAP!</p>
-</div> -->
   {{> settings}}
   {{> addListView}}
   <div class="app">
-    <aside class="lists col-md-3 col-xs-9">
+    <aside class="lists">
     {{> listsView }}
-  </aside>
-  <section class="items col-md-9 col-xs-12">
-    {{> itemsView }}
-  </section>
+    </aside>
+    {{> navigation}}
+    <section class="items col-md-12 col-xs-12">
+      {{> itemsView }}
+    </section>
   </div>
 </template>
