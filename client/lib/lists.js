@@ -44,6 +44,10 @@ Template.navigation.helpers({
   currentList: function() {
     var controller = Iron.controller();
     var params = controller.getParams();
+
+    if (params._id === 'all' || params._id === 'over-due') {
+      return params._id;
+    }
     return Lists.findOne(params._id).title;
   }
 });
