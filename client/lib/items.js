@@ -48,7 +48,7 @@ Template.itemsView.helpers({
 });
 
 Template.itemsView.events({
-  "submit .new-item": function (event) {
+  "submit .new-item-form": function (event) {
     // This function is called when the new item form is submitted
     var controller = Iron.controller();
     var params = controller.getParams();
