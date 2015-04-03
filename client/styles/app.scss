@@ -108,6 +108,10 @@ body {
   }
 }
 
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index: 0;
+}
+
 .new-item-form {
   padding-bottom: 20px;
   padding-left: 0;
