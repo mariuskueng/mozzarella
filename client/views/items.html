@@ -1,22 +1,20 @@
 <template name="itemsView">
-  <div class="items-wrapper">
-    {{#unless isGenericList}}
-      <form class="new-item navbar-form navbar-left" role="">
-        <div class="form-group">
-          <input type="text" name="text" class="form-control" placeholder="Add new item">
-        </div>
-      </form>
-    {{/unless}}
-    {{#each items}}
-      <div class="item col-md-12">
-        <p>
-          <span>{{title}}</span>
-          <label class="label label-danger pull-right">08.03.2015</label>
-          <label class="label label-primary pull-right">3</label>
-        </p>
+  {{#unless isGenericList}}
+    <form class="new-item-form navbar-form navbar-left" role="">
+      <div class="form-group">
+        <input type="text" name="text" class="form-control" placeholder="Add new item">
       </div>
-      {{else}}
-        <p>There are no items in this list. {{#unless isGenericList}}Add new items in the textfield above.{{/unless}}</p>
-    {{/each}}
-  </div>
+    </form>
+  {{/unless}}
+  {{#each items}}
+    <div class="item col-md-12">
+      <p>
+        <span>{{title}}</span>
+        <label class="label label-danger pull-right">08.03.2015</label>
+        <label class="label label-primary pull-right">3</label>
+      </p>
+    </div>
+    {{else}}
+      <p>There are no items in this list. {{#unless isGenericList}}Add new items in the textfield above.{{/unless}}</p>
+  {{/each}}
 </template>
