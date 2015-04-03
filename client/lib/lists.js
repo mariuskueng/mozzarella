@@ -19,6 +19,13 @@ Template.listsView.helpers({
     return false;
   }
 });
+
+Template.listsView.events({
+  'click .list-group-item': function(event, template) {
+    $('#appNavMenu').offcanvas('toggle');
+  }
+});
+
 Template.addListView.events({
   'submit .add-list': function (event, template) {
     // This function is called when the new item form is submitted
