@@ -7,3 +7,4 @@ fourseven:scss
 fortawesome:fontawesome
 velocity:html-reporter
 sanjo:jasmine
+velocity:meteor-stubs
