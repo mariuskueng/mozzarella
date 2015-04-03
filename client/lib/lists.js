@@ -22,7 +22,9 @@ Template.listsView.helpers({
 
 Template.listsView.events({
   'click .list-group-item': function(event, template) {
-    $('#appNavMenu').offcanvas('toggle');
+    if ($('#appNavMenu').hasClass('canvas-slid')) {
+      $('#appNavMenu').offcanvas('toggle');
+    }
   }
 });
 
