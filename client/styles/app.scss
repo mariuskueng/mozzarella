@@ -46,9 +46,14 @@ body {
 }
 
 .app-nav-button {
-  display: block;
   float: none;
   margin-left: 0;
+}
+
+.app-nav-list-title {
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .notifications {

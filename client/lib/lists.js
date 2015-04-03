@@ -32,3 +32,11 @@ Template.addListView.events({
     return false;
   }
 });
+
+Template.navigation.helpers({
+  currentList: function() {
+    var controller = Iron.controller();
+    var params = controller.getParams();
+    return Lists.findOne(params._id).title;
+  }
+});
