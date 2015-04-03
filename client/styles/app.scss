@@ -16,12 +16,6 @@ body {
   height: 100%;
 }
 
-@media (min-width: 992px) {
-  body {
-    padding: 0 0 0 300px;
-  }
-}
-
 .home {
   img {
     display: block;
@@ -32,6 +26,16 @@ body {
 //*****************
 // App Styles
 //*****************
+
+.app {
+  height: 100%;
+}
+
+@media (min-width: 992px) {
+  .app {
+    padding: 0 0 0 300px;
+  }
+}
 
 .navbar {
   margin-bottom: 0;

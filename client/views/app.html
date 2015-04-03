@@ -1,11 +1,13 @@
 <template name="appView">
-  {{> settings}}
-  {{> addListView}}
-  <aside id="appNavMenu" class="lists navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
-    {{> listsView }}
-  </aside>
-  {{> navigation}}
-  <section class="items col-md-9 col-xs-12">
-    {{> itemsView }}
-  </section>
+  <div class="app">
+    {{> settings}}
+    {{> addListView}}
+    <aside id="appNavMenu" class="lists navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+      {{> listsView }}
+    </aside>
+    {{> navigation}}
+    <section class="items col-md-9 col-xs-12">
+      {{> itemsView }}
+    </section>
+  </div>
 </template>
