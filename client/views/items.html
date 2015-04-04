@@ -7,12 +7,11 @@
     </form>
   {{/unless}}
   {{#each items}}
-    <div class="item col-md-12">
-      <p>
-        <span>{{title}}</span>
-        <label class="label label-danger pull-right">08.03.2015</label>
-        <label class="label label-primary pull-right">3</label>
-      </p>
+    <div class="item col-md-12" id="{{_id}}">
+      <input type="checkbox" value="">
+      <span>{{title}}</span>
+      <label class="label label-danger pull-right">08.03.2015</label>
+      <label class="label label-primary pull-right">3</label>
     </div>
     {{else}}
       <p>There are no items in this list. {{#unless isGenericList}}Add new items in the textfield above.{{/unless}}</p>
