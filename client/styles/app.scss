@@ -48,6 +48,7 @@ body {
 .app-nav-button {
   float: none;
   margin-left: 0;
+  display: inline-block;
 }
 
 .app-nav-list-title {
@@ -110,7 +111,7 @@ body {
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     .add-list-button {
       left: -300px;
     }
