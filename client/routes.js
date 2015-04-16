@@ -66,13 +66,15 @@ Router.map( function () {
     },
     action: function() {
       // passes the last opened user's list (MAGIC)
-      var lastList = Lists.findOne({}, {fields: {_id: 1}, sort:{lastOpened: -1}});
-      if (lastList && lastList._id) {
-        Router.go('listsView', lastList);
+      var user = Meteor.user();
+      if (user.profile && user.profile.lastOpenedList) {
+        var lastList = Lists.findOne(Meteor.user().profile.lastOpenedList);
+        if (lastList && lastList._id) {
+          Router.go('listsView', lastList);
+        }
       } else {
         Router.go('allView', 'all');
       }
-
     }
   });
 

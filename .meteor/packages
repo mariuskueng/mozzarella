@@ -1,10 +1,12 @@
 standard-app-packages
 iron:router@=1.0.3
-accounts-ui
 accounts-password
-sahina:flatui
 fourseven:scss
 fortawesome:fontawesome
 velocity:html-reporter
 sanjo:jasmine
 velocity:meteor-stubs
+msavin:mongol
+ian:accounts-ui-bootstrap-3
+twbs:bootstrap
+sahina:flatui

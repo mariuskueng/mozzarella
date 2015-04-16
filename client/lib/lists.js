@@ -1,4 +1,4 @@
-Meteor.subscribe('Lists');
+// Meteor.subscribe('Lists');
 
 Template.listsView.helpers({
   myAppVariable: function () {
@@ -8,7 +8,7 @@ Template.listsView.helpers({
     return Meteor.user();
   },
   lists: function() {
-    return Lists.find({createdBy: Meteor.userId()}, {sort:{createdAt: -1}});
+    return Lists.find({createdBy: Meteor.userId()}, {sort:{createdAt: 1}});
   },
   isCurrentList: function (listId) {
     var controller = Iron.controller();
@@ -32,6 +32,7 @@ Template.addListView.events({
   'submit .add-list': function (event, template) {
     // This function is called when the new item form is submitted
     var text = event.target.text.value;
+    if (text === '') return false;
     Meteor.call("addList", text);
 
     // Clear form

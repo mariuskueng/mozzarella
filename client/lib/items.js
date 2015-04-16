@@ -7,7 +7,8 @@ Template.itemsView.helpers({
 
     if (params._id == 'all') {
       return Items.find({
-        createdBy: Meteor.userId()
+        createdBy: Meteor.userId(),
+        completed: false
       }, {
         sort:{
           createdAt: -1
@@ -18,7 +19,8 @@ Template.itemsView.helpers({
       var currentDate = new Date().getTime();
       return Items.find({
         createdBy: Meteor.userId(),
-        dueDate: { $lte: currentDate }
+        dueDate: { $lte: currentDate },
+        completed: false
       }, {
         sort:{
           createdAt: -1
@@ -27,13 +29,29 @@ Template.itemsView.helpers({
     } else {
       return Items.find({
         createdBy: Meteor.userId(),
-        list: params._id
+        list: params._id,
+        completed: false
       }, {
         sort:{
+          completedAt: 1,
           createdAt: -1
         }
       });
     }
+  },
+  completedItems: function() {
+    var controller = Iron.controller();
+    var params = controller.getParams();
+
+    return Items.find({
+      createdBy: Meteor.userId(),
+      list: params._id,
+      completed: true
+    }, {
+      sort:{
+        completedAt: -1
+      }
+    });
   },
   isGenericList: function() {
     var controller = Iron.controller();
@@ -45,6 +63,9 @@ Template.itemsView.helpers({
     }
     return false;
   },
+  showCompletedItems: function() {
+    return Meteor.user().profile.showCompletedItems;
+  }
 });
 
 Template.itemsView.events({
@@ -54,6 +75,7 @@ Template.itemsView.events({
     var params = controller.getParams();
 
     var text = event.target.text.value;
+    if (text === '') return false;
     Meteor.call("addItem", text, params._id);
 
     // Clear form
@@ -64,5 +86,28 @@ Template.itemsView.events({
   },
   "click .hide-completed": function () {
     Session.set("hideCompleted", ! Session.get("hideCompleted"));
+  },
+  "click .item-checkbox": function(event) {
+    var $Item = $(event.target);
+    var itemId = $Item.parent().attr('id');
+
+    if ($Item.is(':checked')) {
+      $Item.prop('checked', true);
+      Meteor.call('setCompleteItem', itemId, true);
+    } else {
+      $Item.prop('checked', false);
+      Meteor.call('setCompleteItem', itemId, false);
+    }
+  },
+  'click .items-completed': function() {
+    var items = $('.items-completed-list');
+    if (items.hasClass('hidden')) {
+      Meteor.call('showCompletedItems', true);
+      items.removeClass('hidden').addClass('show');
+    }
+    else {
+      Meteor.call('showCompletedItems', false);
+      items.removeClass('show').addClass('hidden');
+    }
   }
 });
