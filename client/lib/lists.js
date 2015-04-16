@@ -1,4 +1,4 @@
-Meteor.subscribe('Lists');
+// Meteor.subscribe('Lists');
 
 Template.listsView.helpers({
   myAppVariable: function () {
