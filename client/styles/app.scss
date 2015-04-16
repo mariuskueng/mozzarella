@@ -188,11 +188,11 @@ body {
   p {
     margin-bottom: 5px;
   }
-}
 
-.item-checkbox {
-  display: inline-block;
-  margin-right: 10px;
+  input[type=checkbox] {
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .item-detail-wrapper .item {

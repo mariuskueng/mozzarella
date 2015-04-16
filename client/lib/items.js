@@ -7,7 +7,8 @@ Template.itemsView.helpers({
 
     if (params._id == 'all') {
       return Items.find({
-        createdBy: Meteor.userId()
+        createdBy: Meteor.userId(),
+        completed: false
       }, {
         sort:{
           createdAt: -1
@@ -18,7 +19,8 @@ Template.itemsView.helpers({
       var currentDate = new Date().getTime();
       return Items.find({
         createdBy: Meteor.userId(),
-        dueDate: { $lte: currentDate }
+        dueDate: { $lte: currentDate },
+        completed: false
       }, {
         sort:{
           createdAt: -1
@@ -27,7 +29,8 @@ Template.itemsView.helpers({
     } else {
       return Items.find({
         createdBy: Meteor.userId(),
-        list: params._id
+        list: params._id,
+        completed: false
       }, {
         sort:{
           createdAt: -1
@@ -65,5 +68,17 @@ Template.itemsView.events({
   },
   "click .hide-completed": function () {
     Session.set("hideCompleted", ! Session.get("hideCompleted"));
+  },
+  "click .item-checkbox": function(event) {
+    var $Item = $(event.target);
+    var itemId = $Item.parent().attr('id');
+
+    if ($Item.is(':checked')) {
+      $Item.prop('checked', true);
+      Meteor.call('setCompleteItem', itemId, true);
+    } else {
+      $Item.prop('checked', false);
+      Meteor.call('setCompleteItem', itemId, false);
+    }
   }
 });
