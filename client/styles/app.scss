@@ -113,8 +113,17 @@ body {
     }
   }
 
-  @media (max-width: 992px) {
+  @media (min-width: 320px) and (max-width: 480px) {
     .add-list-button {
+      top: auto !important;
+      bottom: 0 !important;
+    }
+  }
+
+  @media (min-width: 375px) and (max-width: 992px) {
+    .add-list-button {
+      left: 0 !important;
+      right: 0 !important;
       left: -300px;
     }
   }
