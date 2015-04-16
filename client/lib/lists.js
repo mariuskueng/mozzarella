@@ -8,7 +8,7 @@ Template.listsView.helpers({
     return Meteor.user();
   },
   lists: function() {
-    return Lists.find({createdBy: Meteor.userId()}, {sort:{createdAt: -1}});
+    return Lists.find({createdBy: Meteor.userId()}, {sort:{createdAt: 1}});
   },
   isCurrentList: function (listId) {
     var controller = Iron.controller();

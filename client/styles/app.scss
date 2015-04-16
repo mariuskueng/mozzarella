@@ -75,19 +75,14 @@ body {
   margin-left: 15px;
 }
 
+.navmenu-fixed-left {
+  border-width: 0;
+}
+
 .lists {
   background-color: $white;
+  box-shadow: 0px 0px 2px;
   padding: 10px 0 20px;
-
-  .list-wrapper {
-    bottom: 0;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
 
   .list-group {
     margin-bottom: 100px;
