@@ -94,5 +94,12 @@ Template.itemsView.events({
       $Item.prop('checked', false);
       Meteor.call('setCompleteItem', itemId, false);
     }
+  },
+  'click .items-completed': function() {
+    var items = $('.items-completed-list');
+    if (items.hasClass('hidden'))
+      items.removeClass('hidden').addClass('show');
+    else
+      items.removeClass('show').addClass('hidden');
   }
 });

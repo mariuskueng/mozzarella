@@ -180,6 +180,18 @@ body {
   width: 100%;
 }
 
+.items-completed {
+  background-color: #000;
+  border-radius: 5px;
+  clear: both;
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  opacity: 0.5;
+  padding: 2px 10px;
+}
+
 .item {
   background-color: $white;
   border-radius: 6px;
