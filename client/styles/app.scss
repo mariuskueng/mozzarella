@@ -195,6 +195,12 @@ body {
   }
 }
 
+.item-title {
+  &.completed {
+    text-decoration: line-through;
+  }
+}
+
 .item-detail-wrapper .item {
   border-bottom: 1px solid $gray;
   border-radius: 0;

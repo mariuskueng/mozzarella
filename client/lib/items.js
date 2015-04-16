@@ -38,6 +38,20 @@ Template.itemsView.helpers({
       });
     }
   },
+  completedItems: function() {
+    var controller = Iron.controller();
+    var params = controller.getParams();
+
+    return Items.find({
+      createdBy: Meteor.userId(),
+      list: params._id,
+      completed: true
+    }, {
+      sort:{
+        completedAt: -1
+      }
+    });
+  },
   isGenericList: function() {
     var controller = Iron.controller();
     var params = controller.getParams();
