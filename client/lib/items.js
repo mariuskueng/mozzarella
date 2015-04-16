@@ -33,6 +33,7 @@ Template.itemsView.helpers({
         completed: false
       }, {
         sort:{
+          completedAt: 1,
           createdAt: -1
         }
       });
