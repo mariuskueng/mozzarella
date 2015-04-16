@@ -54,6 +54,7 @@ Template.itemsView.events({
     var params = controller.getParams();
 
     var text = event.target.text.value;
+    if (text === '') return false;
     Meteor.call("addItem", text, params._id);
 
     // Clear form
