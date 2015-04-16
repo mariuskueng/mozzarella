@@ -24,6 +24,16 @@ body {
   }
 }
 
+.jumbotron {
+  .dropdown {
+    list-style: none;
+  }
+
+  #login-dropdown-list a {
+    margin: 0;
+  }
+}
+
 //*****************
 // App Styles
 //*****************
@@ -41,10 +51,6 @@ body {
 .navbar {
   padding-top: 10px;
   margin-bottom: 0;
-
-  .login-link-and-dropdown-list {
-    margin-top: 10px;
-  }
 }
 
 .app-nav-button {
@@ -63,6 +69,10 @@ body {
   padding-top: 10px;
   position: relative;
   text-align: center;
+}
+
+#login-dropdown-list a {
+  margin-left: 15px;
 }
 
 .lists {
@@ -198,22 +208,5 @@ body {
 .item-title {
   &.completed {
     text-decoration: line-through;
-  }
-}
-
-.item-detail-wrapper .item {
-  border-bottom: 1px solid $gray;
-  border-radius: 0;
-  margin-bottom: 0;
-
-  &:first-child {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-  }
-
-  &:last-child {
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    margin-bottom: 10px;
   }
 }
