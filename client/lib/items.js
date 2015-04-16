@@ -62,6 +62,9 @@ Template.itemsView.helpers({
     }
     return false;
   },
+  showCompletedItems: function() {
+    return Meteor.user().profile.showCompletedItems;
+  }
 });
 
 Template.itemsView.events({
@@ -97,9 +100,13 @@ Template.itemsView.events({
   },
   'click .items-completed': function() {
     var items = $('.items-completed-list');
-    if (items.hasClass('hidden'))
+    if (items.hasClass('hidden')) {
+      Meteor.call('showCompletedItems', true);
       items.removeClass('hidden').addClass('show');
-    else
+    }
+    else {
+      Meteor.call('showCompletedItems', false);
       items.removeClass('show').addClass('hidden');
+    }
   }
 });

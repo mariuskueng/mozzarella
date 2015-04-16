@@ -14,7 +14,11 @@
   {{#unless isGenericList}}
     {{#if completedItems.count}}
       <p class="items-completed">Completed items</p>
-      <div class="items-completed-list hidden">
+      <div class="items-completed-list {{#if showCompletedItems }}
+          show
+        {{else}}
+          hidden
+        {{/if}}">
         {{#each completedItems}}
          {{> item }}
         {{/each}}
