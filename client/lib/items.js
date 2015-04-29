@@ -1,5 +1,7 @@
 Meteor.subscribe('Items');
 
+newItemDueDate = null;
+
 Template.itemsView.helpers({
   items: function() {
     var controller = Iron.controller();
@@ -76,10 +78,19 @@ Template.itemsView.events({
 
     var text = event.target.text.value;
     if (text === '') return false;
-    Meteor.call("addItem", text, params._id);
+
+    var newItem = {
+      text: text,
+      dueDate: newItemDueDate,
+      listId: params._id
+    };
+
+    Meteor.call("addItem", newItem);
 
     // Clear form
     event.target.text.value = "";
+    // Clear newItemDueDate
+    newItemDueDate = null;
 
     // Prevent default form submit
     return false;
@@ -109,6 +120,9 @@ Template.itemsView.events({
       Meteor.call('showCompletedItems', false);
       items.removeClass('show').addClass('hidden');
     }
+  },
+  'changeDate #item-datepicker': function(e) {
+    newItemDueDate = e.date.getTime();
   }
 });
 
