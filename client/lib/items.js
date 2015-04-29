@@ -98,6 +98,7 @@ Template.itemsView.events({
     event.target.text.value = "";
     // Clear newItemDueDate
     newItemDueDate = null;
+    newItemDueDateDep.changed();
 
     // Prevent default form submit
     return false;
