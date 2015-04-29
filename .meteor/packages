@@ -8,5 +8,6 @@ velocity:meteor-stubs
 msavin:mongol
 ian:accounts-ui-bootstrap-3
 twbs:bootstrap
+rajit:bootstrap3-datepicker
 sahina:flatui
 velocity:console-reporter
