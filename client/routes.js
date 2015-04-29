@@ -2,6 +2,9 @@
 Router.configure({
   loadingTemplate: 'loading',
 
+  // the notFound template is used for unknown routes and missing lists
+  notFoundTemplate: 'notFound',
+
   // wait on the following subscriptions before rendering the page to ensure
   // the data it's expecting is present
   waitOn: function() {
@@ -31,9 +34,21 @@ Router.route('listsView', {
       // if the user is not logged in, render the Login template
       this.render('homeView');
     } else {
+      // List must be created by the current user
+      var currentList = Lists.findOne(this.params._id);
+      var userId = Meteor.userId();
 
-      // set the current list before rendering
-      Meteor.call('setCurrentList', this.params._id);
+      if (userId === currentList.createdBy) {
+        console.log("all good");
+        // set the current list before rendering
+        Meteor.call('setCurrentList', this.params._id);
+
+      // else if (this.params._id === 'all' || this.params._id === 'over-due') {
+      //   Meteor.call('setCurrentList', this.params._id);
+      //   this.redirect('/lists/' + this.params._id);
+      } else {
+        this.redirect('/lists/');
+      }
       // otherwise don't hold up the rest of hooks or our route/action function
       // from running
       this.next();
@@ -46,7 +61,7 @@ Router.route('listsView', {
 
 // redirect lists root to all
 Router.route('/lists/', function() {
-  this.redirect('/lists/all');
+  this.redirect('allView');
 });
 
 Router.route('allView', {
