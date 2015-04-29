@@ -11,3 +11,4 @@ twbs:bootstrap
 rajit:bootstrap3-datepicker
 sahina:flatui
 velocity:console-reporter
+momentjs:moment
