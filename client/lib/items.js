@@ -111,3 +111,10 @@ Template.itemsView.events({
     }
   }
 });
+
+Template.itemsView.rendered = function() {
+  $('#item-datepicker').datepicker({
+    autoclose: true,
+    todayHighlight: true
+  });
+};
