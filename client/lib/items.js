@@ -1,6 +1,7 @@
 Meteor.subscribe('Items');
 
-newItemDueDate = null;
+var newItemDueDate = null;
+var newItemDueDateDep = new Tracker.Dependency();
 
 Template.itemsView.helpers({
   items: function() {
@@ -67,6 +68,12 @@ Template.itemsView.helpers({
   },
   showCompletedItems: function() {
     return Meteor.user().profile.showCompletedItems;
+  },
+  showNewItemDueDate: function() {
+    newItemDueDateDep.depend();
+    if (newItemDueDate) {
+      return moment(newItemDueDate).format("ddd, Do MMMM YYYY");
+    }
   }
 });
 
@@ -123,6 +130,7 @@ Template.itemsView.events({
   },
   'changeDate #item-datepicker': function(e) {
     newItemDueDate = e.date.getTime();
+    newItemDueDateDep.changed();
   }
 });
 

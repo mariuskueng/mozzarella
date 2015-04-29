@@ -2,7 +2,7 @@
   <div class="item col-md-12" id="{{_id}}">
     <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
     <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
-    {{!-- <label class="label label-danger pull-right">08.03.2015</label>
-    <label class="label label-primary pull-right">3</label> --}}
+    <label class="label label-danger pull-right">{{ itemMoment dueDate }}</label>
+    {{!-- <label class="label label-primary pull-right">3</label> --}}
   </div>
 </template>
