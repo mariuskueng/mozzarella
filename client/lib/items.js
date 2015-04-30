@@ -1,5 +1,9 @@
 Meteor.subscribe('Items');
 
+var newItemDueDate = null;
+var itemDueDateChanged = false;
+var itemDueDateChangedDep = new Tracker.Dependency();
+
 Template.itemsView.helpers({
   items: function() {
     var controller = Iron.controller();
@@ -65,6 +69,13 @@ Template.itemsView.helpers({
   },
   showCompletedItems: function() {
     return Meteor.user().profile.showCompletedItems;
+  },
+  isItemDueDateChanged: function() {
+    itemDueDateChangedDep.depend();
+    if (!itemDueDateChanged) {
+      return true;
+    }
+    return false;
   }
 });
 
@@ -76,10 +87,21 @@ Template.itemsView.events({
 
     var text = event.target.text.value;
     if (text === '') return false;
-    Meteor.call("addItem", text, params._id);
+
+    var newItem = {
+      text: text,
+      dueDate: newItemDueDate,
+      listId: params._id
+    };
+
+    Meteor.call("addItem", newItem);
 
     // Clear form
     event.target.text.value = "";
+    // Clear newItemDueDate
+    newItemDueDate = null;
+    itemDueDateChanged = false;
+    itemDueDateChangedDep.changed();
 
     // Prevent default form submit
     return false;
@@ -109,5 +131,17 @@ Template.itemsView.events({
       Meteor.call('showCompletedItems', false);
       items.removeClass('show').addClass('hidden');
     }
+  },
+  'changeDate #item-datepicker': function(e) {
+    newItemDueDate = e.date.getTime();
+    itemDueDateChanged = true;
+    itemDueDateChangedDep.changed();
   }
 });
+
+Template.itemsView.rendered = function() {
+  $('#item-datepicker').datepicker({
+    autoclose: true,
+    todayHighlight: true
+  });
+};
