@@ -1,7 +1,14 @@
 Template.item.helpers({
-  itemMoment: function(dueDate) {
+  momentDueDate: function(dueDate) {
     if (dueDate) {
-      return moment(dueDate).format("ddd, Do MMMM YYYY");
+      var momentDueDate = moment(dueDate);
+      return momentDueDate.fromNow(true);
     }
+  },
+  isOverDue: function(dueDate) {
+    if ((dueDate < new Date().getTime())) {
+      return true;
+    }
+    return false;
   }
 });
