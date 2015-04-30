@@ -1,5 +1,6 @@
 Meteor.subscribe('Items');
 
+var newItemDueDate = null;
 var itemDueDateChanged = false;
 var itemDueDateChangedDep = new Tracker.Dependency();
 
@@ -98,6 +99,7 @@ Template.itemsView.events({
     // Clear form
     event.target.text.value = "";
     // Clear newItemDueDate
+    newItemDueDate = null;
     itemDueDateChanged = false;
     itemDueDateChangedDep.changed();
 
@@ -131,6 +133,7 @@ Template.itemsView.events({
     }
   },
   'changeDate #item-datepicker': function(e) {
+    newItemDueDate = e.date.getTime();
     itemDueDateChanged = true;
     itemDueDateChangedDep.changed();
   }
