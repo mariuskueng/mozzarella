@@ -5,6 +5,7 @@
 $white: #fff;
 $gray: #777;
 $red: #e74c3c;
+$input-text: #bdc3c7;
 $mobile-portrait: 768px;
 
 //*****************
@@ -187,12 +188,12 @@ body {
     width: 100%;
   }
 
-  .form-control {
+  .item-text {
     background-color: #646c6d;
     border: none;
     border-radius: 6px;
     box-shadow: 0px 1px 1px 0px;
-    color: #bdc3c7;
+    color: $input-text;
     height: 45px;
     position: relative;
   }
@@ -202,6 +203,20 @@ body {
     position: absolute;
     right: 15px;
     top: 7px;
+  }
+
+  .item-amount {
+    background-color: #646c6d;
+    border: none;
+    color: $input-text;
+    display: inline-block;
+    height: 30px;
+    position: absolute;
+    right: 45px;
+    top: 7px;
+    width: 40px;
+    // TODO: needs work
+    // -webkit-appearance: none;
   }
 }
 
