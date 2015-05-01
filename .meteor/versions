@@ -76,6 +76,7 @@ spacebars-compiler@1.0.5
 srp@1.0.3
 standard-app-packages@1.0.5
 stylus@1.0.7
+suxez:jasny-bootstrap@1.0.0
 templating@1.1.0
 tracker@1.0.6
 twbs:bootstrap@3.3.4

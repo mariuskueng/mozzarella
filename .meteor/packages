@@ -6,9 +6,10 @@ fortawesome:fontawesome
 sanjo:jasmine
 velocity:meteor-stubs
 msavin:mongol
-ian:accounts-ui-bootstrap-3
-twbs:bootstrap
-rajit:bootstrap3-datepicker
-sahina:flatui
 velocity:console-reporter
 momentjs:moment
+twbs:bootstrap
+ian:accounts-ui-bootstrap-3
+suxez:jasny-bootstrap
+rajit:bootstrap3-datepicker
+sahina:flatui
