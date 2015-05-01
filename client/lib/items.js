@@ -1,6 +1,7 @@
 Meteor.subscribe('Items');
 
 var newItemDueDate = null;
+var newItemAmount = 0;
 var itemDueDateChanged = false;
 var itemDueDateChangedDep = new Tracker.Dependency();
 
@@ -91,7 +92,8 @@ Template.itemsView.events({
     var newItem = {
       text: text,
       dueDate: newItemDueDate,
-      listId: params._id
+      listId: params._id,
+      amount: newItemAmount
     };
 
     Meteor.call("addItem", newItem);
@@ -136,6 +138,10 @@ Template.itemsView.events({
     newItemDueDate = e.date.getTime();
     itemDueDateChanged = true;
     itemDueDateChangedDep.changed();
+  },
+  'change .item-amount': function(e) {
+    newItemAmount = e.target.value;
+
   }
 });
 
