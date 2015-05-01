@@ -10,9 +10,15 @@ Template.item.helpers({
     }
   },
   isOverDue: function(dueDate) {
-    if ((dueDate < new Date().getTime())) {
-      return true;
+    var momentNow = moment(new Date());
+    var momentDueDate = moment(dueDate);
+
+    if (momentDueDate > momentNow) {
+      return 'success';
+    } else if (momentNow.diff(momentDueDate, 'weeks') < 1){
+      return 'warning';
+    } else {
+      return 'danger';
     }
-    return false;
   }
 });
