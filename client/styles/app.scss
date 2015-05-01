@@ -263,6 +263,14 @@ body {
     display: inline-block;
     margin-right: 5px;
   }
+
+  .label {
+    margin-top: 4px;
+  }
+
+  .item-duedate + .item-amount{
+    margin-right: 5px;
+  }
 }
 
 .item-title {

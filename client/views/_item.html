@@ -2,7 +2,7 @@
   <div class="item col-md-12" id="{{_id}}">
     <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
     <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
-    <label class="label label-{{isOverDue dueDate}} pull-right">{{ momentDueDate dueDate }}</label>
-    <label class="label label-primary pull-right">{{#if hasAmountBiggerThanOne amount}}{{amount}}{{/if}}</label>
+    <label class="item-duedate label label-{{isOverDue dueDate}} pull-right">{{ momentDueDate dueDate }}</label>
+    <label class="item-amount label label-default pull-right">{{#if hasAmountBiggerThanOne amount}}{{amount}}{{/if}}</label>
   </div>
 </template>
