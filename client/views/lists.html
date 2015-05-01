@@ -1,8 +1,8 @@
 <template name="listsView">
   <ul class="list-group">
     {{> loginButtons}}
-    <li><a class="list-group-item {{#if isCurrentList 'all' }}active{{/if}}" href="/lists/all"><i class="infinity text-info">∞</i> All</a></li>
-    <li><a class="list-group-item {{#if isCurrentList 'over-due' }}active{{/if}}" href="/lists/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
+    <li><a class="list-group-item {{#if isCurrentList 'all' }}active{{/if}}" href="/all"><i class="infinity text-info">∞</i> All</a></li>
+    <li><a class="list-group-item {{#if isCurrentList 'over-due' }}active{{/if}}" href="/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
 
     {{#each lists}}
       <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a></li>

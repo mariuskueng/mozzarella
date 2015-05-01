@@ -13,7 +13,7 @@ Template.listsView.helpers({
   isCurrentList: function (listId) {
     var controller = Iron.controller();
     var params = controller.getParams();
-    if (listId == params._id) {
+    if (controller.url.indexOf(listId) > -1) {
       return true;
     }
     return false;
@@ -48,8 +48,11 @@ Template.navigation.helpers({
     var controller = Iron.controller();
     var params = controller.getParams();
 
-    if (params._id === 'all' || params._id === 'over-due') {
-      return params._id;
+    if (controller.url.indexOf('all') > -1) {
+      return GENERIC_ROUTES.all.title;
+    }
+    else if (controller.url.indexOf('over-due') > -1) {
+      return GENERIC_ROUTES.overDue.title;
     }
     return Lists.findOne(params._id).title;
   }

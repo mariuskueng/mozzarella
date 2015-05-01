@@ -6,44 +6,6 @@ var itemDueDateChanged = false;
 var itemDueDateChangedDep = new Tracker.Dependency();
 
 Template.itemsView.helpers({
-  items: function() {
-    var controller = Iron.controller();
-    var params = controller.getParams();
-
-    if (params._id == 'all') {
-      return Items.find({
-        createdBy: Meteor.userId(),
-        completed: false
-      }, {
-        sort:{
-          createdAt: -1
-        }
-      });
-
-    } else if(params._id == 'over-due') {
-      var currentDate = new Date().getTime();
-      return Items.find({
-        createdBy: Meteor.userId(),
-        dueDate: { $lte: currentDate },
-        completed: false
-      }, {
-        sort:{
-          createdAt: -1
-        }
-      });
-    } else {
-      return Items.find({
-        createdBy: Meteor.userId(),
-        list: params._id,
-        completed: false
-      }, {
-        sort:{
-          completedAt: 1,
-          createdAt: -1
-        }
-      });
-    }
-  },
   completedItems: function() {
     var controller = Iron.controller();
     var params = controller.getParams();
