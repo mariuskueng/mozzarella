@@ -20,5 +20,11 @@ Template.item.helpers({
     } else {
       return 'danger';
     }
+  },
+  hasAmountBiggerThanOne: function(amount) {
+    if (amount > 1) {
+      return true;
+    }
+    return false;
   }
 });
