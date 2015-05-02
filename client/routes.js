@@ -152,7 +152,6 @@ Router.route('appView', {
     // passes the last opened user's list (MAGIC)
     var user = Meteor.user();
     if (user.profile && user.profile.lastOpenedList) {
-      console.log(user.profile.lastOpenedList);
       var lastList = Lists.findOne(user.profile.lastOpenedList);
       if (lastList && lastList._id) {
         Router.go('listsView', lastList);

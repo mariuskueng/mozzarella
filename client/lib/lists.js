@@ -54,6 +54,9 @@ Template.navigation.helpers({
     else if (controller.url.indexOf('over-due') > -1) {
       return GENERIC_ROUTES.overDue.title;
     }
-    return Lists.findOne(params._id).title;
+    if (Lists.findOne(params._id)) {
+      return Lists.findOne(params._id).title;
+    }
+    return null;
   }
 });
