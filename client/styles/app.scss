@@ -103,6 +103,22 @@ body {
     }
   }
 
+  .list-edit {
+    display: none;
+    position: absolute;
+    right: 3px;
+    top: 7px;
+  }
+
+  .list-item {
+    position: relative;
+
+    &.active .list-edit {
+      display: block;
+      color: $white;
+    }
+  }
+
   i {
     margin: 0 10px 0 0;
   }

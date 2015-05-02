@@ -1,4 +1,4 @@
-// Meteor.subscribe('Lists');
+Meteor.subscribe('Lists');
 
 Template.listsView.helpers({
   myAppVariable: function () {
@@ -25,6 +25,10 @@ Template.listsView.events({
     if ($('#appNavMenu').hasClass('canvas-slid')) {
       $('#appNavMenu').offcanvas('toggle');
     }
+  },
+  'click .list-edit': function(event) {
+    var listId = $(event.target).parent().attr('data-list-id');
+    Session.set('editListId', listId);
   }
 });
 
@@ -34,6 +38,29 @@ Template.addListView.events({
     var text = event.target.text.value;
     if (text === '') return false;
     Meteor.call("addList", text);
+
+    // Clear form
+    event.target.text.value = "";
+
+    // Prevent default form submit
+    return false;
+  }
+});
+
+Template.editListView.helpers({
+  title: function() {
+    if (Session.get('editListId'))
+    return Lists.findOne(Session.get('editListId')).title;
+  }
+});
+
+Template.editListView.events({
+  'submit .edit-list': function (event, template) {
+    // This function is called when the new item form is submitted
+    var text = event.target.text.value;
+    if (text === '') return false;
+
+    Meteor.call("editList", Session.get('editListId'), text);
 
     // Clear form
     event.target.text.value = "";

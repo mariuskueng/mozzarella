@@ -5,7 +5,10 @@
     <li><a class="list-group-item {{#if isCurrentList 'over-due' }}active{{/if}}" href="/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a></li>
 
     {{#each lists}}
-      <li><a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a></li>
+      <li class="list-item {{#if isCurrentList _id }}active{{/if}}">
+        <a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a>
+        <a href="#" class="list-edit" data-toggle="modal" data-target="#edit-list-modal-dialog" data-list-id="{{_id}}"><i class="fa fa-pencil"></i></a>
+        </li>
       {{else}}
       <p>There are no lists yet. Add one below with the plus button.</p>
     {{/each}}
