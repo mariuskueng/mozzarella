@@ -98,13 +98,13 @@ body {
     border: 0;
     border-radius: 0;
 
-    &.active i{
+    &.active i {
       color: $white;
     }
   }
 
   .list-edit {
-    display: none;
+    color: $white;
     position: absolute;
     right: 3px;
     top: 7px;
@@ -112,11 +112,6 @@ body {
 
   .list-item {
     position: relative;
-
-    &.active .list-edit {
-      display: block;
-      color: $white;
-    }
   }
 
   i {
