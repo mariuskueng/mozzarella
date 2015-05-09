@@ -149,9 +149,9 @@ body {
 
 @media (min-width: 320px) and (max-width: 480px) {
   .add-list-button {
-    top: auto !important;
-    bottom: 0 !important;
+    display: none;
   }
+
   .lists {
     height: 480px;
   }
@@ -166,6 +166,13 @@ body {
   .lists {
     height: auto;
   }
+}
+
+.add-list-button-navbar {
+  background-color: none;
+  float: right;
+  font-size: 25px;
+  margin: 15px 20px 0 0;
 }
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
