@@ -20,16 +20,6 @@ Template.itemsView.helpers({
       }
     });
   },
-  isGenericList: function() {
-    var controller = Iron.controller();
-    var params = controller.getParams();
-    var listId = params._id;
-
-    if (listId === 'all' || listId === 'over-due') {
-      return true;
-    }
-    return false;
-  },
   showCompletedItems: function() {
     return Meteor.user().profile.showCompletedItems;
   },

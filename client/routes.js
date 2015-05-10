@@ -100,7 +100,8 @@ Router.route('allView', {
           createdAt: -1
         }
       });
-    }
+    },
+    isGenericList: true
   }
 });
 
@@ -132,7 +133,8 @@ Router.route('overDueView', {
 
         }
       });
-    }
+    },
+    isGenericList: true
   }
 });
 
