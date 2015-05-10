@@ -1,11 +1,27 @@
+// override momentjs fromNow string outputs
+moment.locale('en', {
+  relativeTime : {
+    future: "%s",
+    past:   "%s",
+    h:  "1h",
+    hh: "%dh",
+    d:  "1d",
+    dd: "%dd",
+    M:  "1m",
+    MM: "%dm",
+    y:  "1y",
+    yy: "%dy"
+  }
+});
+
 Template.item.helpers({
   momentDueDate: function(dueDate) {
     if (dueDate) {
       var now = new Date().getTime();
       if (dueDate < now) {
-        return moment(dueDate).fromNow(true) + " ago";
+        return moment(dueDate).fromNow(true);
       } else {
-        return "in " + moment(dueDate).fromNow(true);
+        return moment(dueDate).fromNow(true);
       }
     }
   },
