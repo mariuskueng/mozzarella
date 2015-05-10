@@ -2,10 +2,15 @@
 // Variables
 //*****************
 
+$black: #000;
 $white: #fff;
 $gray: #777;
 $red: #e74c3c;
+$blue: #428bca;
+$gradient-color: #afc4cb;
+
 $input-text: #bdc3c7;
+$input-background-color: #646c6d;
 $mobile-portrait: 768px;
 
 //*****************
@@ -29,10 +34,6 @@ body {
   .dropdown {
     list-style: none;
   }
-
-  #login-dropdown-list a {
-    margin: 0;
-  }
 }
 
 //*****************
@@ -50,15 +51,15 @@ body {
 }
 
 .navbar {
-  box-shadow: 0px 1px 1px 0px;
+  box-shadow: 0 1px 1px 0;
   margin-bottom: 0;
   padding-top: 10px;
 }
 
 .app-nav-button {
+  display: inline-block;
   float: none;
   margin-left: 0;
-  display: inline-block;
 }
 
 .app-nav-list-title {
@@ -73,21 +74,21 @@ body {
   text-align: center;
 }
 
-#login-dropdown-list a {
-  margin-left: 15px;
-}
-
 .navmenu-fixed-left {
   border-width: 0;
 }
 
 .lists {
   background-color: $white;
-  box-shadow: 0px 0px 2px;
+  box-shadow: 0 0 2px;
   padding: 10px 0 20px;
 
   .dropdown {
-    padding: 0 0 10px 0;
+    padding: 0 0 10px;
+  }
+
+  .dropdown-toggle {
+    margin-left: 15px;
   }
 
   .list-group {
@@ -124,11 +125,10 @@ body {
 }
 
 .add-list-button {
-  background-color: #428bca;
+  background-color: $blue;
   border-radius: 100%;
-  border-top: 1px solid #bdc3c7;
   bottom: 20px;
-  color: #FFF;
+  color: $white;
   height: 50px;
   left: 120px;
   margin: 0;
@@ -137,13 +137,13 @@ body {
   width: 50px;
 
   a {
-    color: #FFF;
+    color: $white;
     display: block;
     font-size: 45px;
-    height: 0;
     font-weight: 200;
-    margin-top: -32px;
+    height: 0;
     margin-left: -3px;
+    margin-top: -32px;
   }
 }
 
@@ -163,6 +163,7 @@ body {
     left: -300px;
     position: fixed;
   }
+
   .lists {
     height: auto;
   }
@@ -175,7 +176,9 @@ body {
   margin: 15px 20px 0 0;
 }
 
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
   z-index: 0;
 }
 
@@ -207,25 +210,25 @@ body {
   }
 
   .item-text {
-    background-color: #646c6d;
-    border: none;
+    background-color: $input-background-color;
+    border: 0;
     border-radius: 6px;
-    box-shadow: 0px 1px 1px 0px;
+    box-shadow: 0 1px 1px 0;
     color: $input-text;
     height: 45px;
     position: relative;
   }
 
   .item-datepicker {
-    color: #FFF;
+    color: $white;
     position: absolute;
     right: 15px;
     top: 7px;
   }
 
   .item-amount {
-    background-color: #646c6d;
-    border: none;
+    background-color: $input-background-color;
+    border: 0;
     color: $input-text;
     display: inline-block;
     height: 30px;
@@ -239,11 +242,11 @@ body {
 }
 
 .items {
-  background: -webkit-gradient(linear, left top, left bottom, from(#AFC4CB), to(#FFF));
+  background: -webkit-gradient(linear, left top, left bottom, from($gradient-color), to($white));
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 20px 20px;
+  padding: 20px;
   width: 100%;
 }
 
@@ -254,30 +257,30 @@ body {
 }
 
 .items-completed {
-  background-color: #000;
+  background-color: $black;
   border-radius: 5px;
   clear: both;
-  color: #FFF;
+  color: $white;
   cursor: pointer;
   display: inline-block;
   font-size: 12px;
-  opacity: 0.5;
-  text-transform: uppercase;
+  opacity: .5;
   padding: 2px 10px;
+  text-transform: uppercase;
 }
 
 .item {
   background-color: $white;
   border-radius: 6px;
+  box-shadow: 0 1px 1px 0;
   margin-bottom: 10px;
   padding: 7.5px 10px;
-  box-shadow: 0px 1px 1px 0px;
 
   p {
     margin-bottom: 5px;
   }
 
-  input[type=checkbox] {
+  .item-checkbox {
     display: inline-block;
     margin-right: 5px;
   }
@@ -286,7 +289,7 @@ body {
     margin-top: 4px;
   }
 
-  .item-duedate + .item-amount{
+  .item-duedate + .item-amount {
     margin-right: 5px;
   }
 }
