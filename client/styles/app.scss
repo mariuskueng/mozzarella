@@ -115,6 +115,11 @@ body {
     border: 0;
     border-radius: 0;
     display: inline-block;
+    padding-right: 60px;
+
+    &:hover, &:focus {
+      background-color: transparent;
+    }
   }
 
   .list-edit {
@@ -146,7 +151,7 @@ body {
   position: fixed;
   right: 0;
   width: 50px;
-  z-index: 10000;
+  z-index: 1031;
 
   a {
     color: $white;
