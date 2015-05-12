@@ -1,6 +1,6 @@
 # Introduction
 
-![Pizza Logo](figures/pizza.jpg)
+![Pizza Logo](figures/pizza.png)
 
 ## Motivation
 
