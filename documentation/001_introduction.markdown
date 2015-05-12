@@ -1,3 +1,4 @@
+
 # Introduction
 
 ![Pizza Logo](figures/pizza.png)
@@ -20,6 +21,6 @@ In the first version the following features will be implemented:
 
 ## v2
 
-Future improvments:
+Future improvements:
 
 - **Item notifications** If a user makes a CRUD-action on items in a shared list all other users are getting notified about the recent changes.

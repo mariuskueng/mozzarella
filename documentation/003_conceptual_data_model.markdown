@@ -1,3 +1,4 @@
+
 # Conceptual Data Model
 
 ## Overview
@@ -11,7 +12,7 @@ A *user* of the app. He can be a member of one or more *lists*. He can also shar
 A *list* with a given name and one or more *users* that stores and sorts several *items*.
 
 ### Entity: Item
-An *item* has the following attributes: *title*, *amount*, *due date* and *completed*. *Completed* items are automaticall hidden in a *list* and visible on request.
+An *item* has the following attributes: *title*, *amount*, *due date* and *completed*. *Completed* items are automatically hidden in a *list* and visible on request.
 
 ## Operations
 
@@ -27,4 +28,3 @@ User 			| Attach item to item	| `item`    | `success` or `fail`
 User 			| Add user to list | `user` | `success` or `fail`
 User			| Remove user from list | `user` | `success` or `fail`
 User			| Login / Logout | `un/pw` | `Session ID`
-

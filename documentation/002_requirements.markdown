@@ -1,3 +1,4 @@
+
 # Requirements
 
 ## Usecase Overview
@@ -132,5 +133,3 @@ Use Case				| Sort items by due date
 **Alt. Flow**			| -
 **Postconditions**	| -
 **Notes**				| -
-
-
