@@ -135,6 +135,7 @@ body {
   position: fixed;
   right: 0;
   width: 50px;
+  z-index: 10000;
 
   a {
     color: $white;
@@ -147,33 +148,17 @@ body {
   }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 992px) {
   .add-list-button {
-    display: none;
-  }
+    bottom: -100px;
+    left: 0;
+    margin: 0 0 20px 115px;
+    transition: all .3s 0s ease-out;
 
-  .lists {
-    height: 480px;
+    &.visible {
+      bottom: 0;
+    }
   }
-}
-
-@media (min-width: 375px) and (max-width: 992px) {
-  .add-list-button {
-    bottom: 0;
-    left: -300px;
-    position: fixed;
-  }
-
-  .lists {
-    height: auto;
-  }
-}
-
-.add-list-button-navbar {
-  background-color: none;
-  float: right;
-  font-size: 25px;
-  margin: 15px 20px 0 0;
 }
 
 .list-group-item.active,
@@ -184,7 +169,7 @@ body {
 
 @media (max-width: 992px) {
   .lists {
-    padding-top: 20px;
+    padding: 20px 0 150px;
   }
 
   .lists,
