@@ -306,3 +306,13 @@ body {
     text-decoration: line-through;
   }
 }
+
+.edit-item {
+
+  padding: 15px;
+
+  .item-title {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+}

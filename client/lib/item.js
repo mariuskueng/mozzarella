@@ -44,3 +44,10 @@ Template.item.helpers({
     return false;
   }
 });
+
+Template.item.events({
+  'dblclick .item': function(event, template) {
+    // if slide in is already open act differently
+    $('#editItem').offcanvas('toggle');
+  }
+});
