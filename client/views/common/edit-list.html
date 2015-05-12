@@ -8,12 +8,26 @@
         </div>
         <form class="edit-list" role="">
         <div class="modal-body">
-
-            <div class="form-group">
-              <input type="text" name="text" class="form-control" value="{{title}}">
-            </div>
+          <h3 class="modal-title">List title</h3>
+          <div class="form-group">
+            <input type="text" name="text" class="form-control" value="{{title}}">
+          </div>
 
         </div>
+
+        <div class="modal-body">
+
+          <h3 class="modal-title"><i class="fa fa-user-plus"></i> List members</h3>
+          <div class="form-group">
+            <input type="text" name="text" class="form-control" placeholder="Email address">
+          </div>
+          <ul>
+            <li>Marius Küng</li>
+            <li>Sepp Blatter</li>
+            <li>Livio Bieri</li>
+          </ul>
+        </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left list-delete" data-dismiss="modal">Delete list</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
