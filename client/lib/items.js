@@ -2,8 +2,7 @@ Meteor.subscribe('Items');
 
 var newItemDueDate = null;
 var newItemAmount = 1;
-var itemDueDateChanged = false;
-var itemDueDateChangedDep = new Tracker.Dependency();
+Session.set('itemDueDateChanged', false);
 
 Template.itemsView.helpers({
   completedItems: function() {
@@ -24,11 +23,7 @@ Template.itemsView.helpers({
     return Meteor.user().profile.showCompletedItems;
   },
   isItemDueDateChanged: function() {
-    itemDueDateChangedDep.depend();
-    if (!itemDueDateChanged) {
-      return true;
-    }
-    return false;
+    return Session.get('itemDueDateChanged');
   }
 });
 
@@ -54,8 +49,7 @@ Template.itemsView.events({
     event.target.text.value = "";
     // Clear newItemDueDate
     newItemDueDate = null;
-    itemDueDateChanged = false;
-    itemDueDateChangedDep.changed();
+    Session.set('itemDueDateChanged', false);
 
     // Prevent default form submit
     return false;
@@ -88,8 +82,7 @@ Template.itemsView.events({
   },
   'changeDate #item-datepicker': function(e) {
     newItemDueDate = e.date.getTime();
-    itemDueDateChanged = true;
-    itemDueDateChangedDep.changed();
+    Session.set('itemDueDateChanged', true);
   },
   'change .item-amount': function(e) {
     newItemAmount = ((e.target.value > 1) ? e.target.value : 1);
