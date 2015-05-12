@@ -169,7 +169,8 @@ body {
 
 @media (max-width: 992px) {
   .lists {
-    padding: 20px 0 150px;
+    bottom: 0 !important;
+    padding: 20px 0 0;
   }
 
   .lists,
