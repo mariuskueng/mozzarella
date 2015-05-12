@@ -95,24 +95,35 @@ body {
     margin-bottom: 100px;
   }
 
+  .list-item {
+
+    &.active {
+      background-color: $blue;
+
+      .list-group-item {
+        color: $white;
+
+        &:hover, &:focus {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
   .list-group-item {
+    background-color: transparent;
     border: 0;
     border-radius: 0;
-
-    &.active i {
-      color: $white;
-    }
+    display: inline-block;
   }
 
   .list-edit {
     color: $white;
-    position: absolute;
-    right: 3px;
-    top: 7px;
+    margin-top: 8px;
   }
 
-  .list-item {
-    position: relative;
+  .list-item-count {
+    margin: 12px 10px 0;
   }
 
   i {

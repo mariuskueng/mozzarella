@@ -1,8 +1,8 @@
 Meteor.subscribe('Lists');
 
 Template.listsView.helpers({
-  myAppVariable: function () {
-    return Session.get('myAppVariable');
+  listItemsCount: function (listId) {
+    return Items.find({list: listId}).count();
   },
   user: function() {
     return Meteor.user();

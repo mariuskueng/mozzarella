@@ -6,8 +6,18 @@
 
     {{#each lists}}
       <li class="list-item {{#if isCurrentList _id }}active{{/if}}">
-        <a class="list-group-item {{#if isCurrentList _id }}active{{/if}}" href="/lists/{{_id}}"><i class="fa fa-list-ul"></i>{{title}}</a>
-        {{#if isCurrentList _id }}<a href="#" class="list-edit" data-toggle="modal" data-target="#edit-list-modal-dialog" data-list-id="{{_id}}"><i class="fa fa-pencil"></i></a>{{/if}}
+        <a class="list-group-item" href="/lists/{{_id}}">
+          <i class="fa fa-list-ul"></i>
+          {{title}}
+        </a>
+        {{#if isCurrentList _id }}
+          <a href="#" class="list-edit pull-right" data-toggle="modal" data-target="#edit-list-modal-dialog" data-list-id="{{_id}}">
+            <i class="fa fa-pencil"></i>
+          </a>
+        {{/if}}
+        {{#if listItemsCount _id }}
+        <span class="list-item-count label label-default pull-right">{{listItemsCount _id}}</span>
+        {{/if}}
         </li>
       {{else}}
       <p>There are no lists yet. Add one below with the plus button.</p>
