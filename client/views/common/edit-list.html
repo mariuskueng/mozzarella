@@ -7,6 +7,7 @@
           <h4 class="modal-title">Edit list</h4>
         </div>
         <form class="edit-list" role="">
+
         <div class="modal-body">
           <h3 class="modal-title">List title</h3>
           <div class="form-group">
@@ -16,11 +17,13 @@
         </div>
 
         <div class="modal-body">
-
           <h3 class="modal-title"><i class="fa fa-user-plus"></i> List members</h3>
-          <div class="form-group">
-            <input type="text" name="text" class="form-control" placeholder="Email address">
-          </div>
+          <div class="input-group">
+            <input type="text" name="email" class="form-control list-user-add-email" placeholder="Email address" value="sepp.blatter@fifa.com">
+            <span class="input-group-btn">
+              <button class="btn btn-default fa fa-user-plus btn-list-user-add" type="button"></button>
+            </span>
+          </div><!-- /input-group -->
           <ul>
             <li>Marius Küng</li>
             <li>Sepp Blatter</li>
@@ -31,7 +34,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left list-delete" data-dismiss="modal">Delete list</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-primary" value="Update list" data-toggle="modal" data-target="#edit-list-modal-dialog">
+          <input type="submit" class="btn btn-primary" value="Done" data-toggle="modal" data-target="#edit-list-modal-dialog">
         </div>
         </form>
       </div><!-- /.modal-content -->

@@ -60,13 +60,23 @@ Template.editListView.events({
     var text = event.target.text.value;
     if (text === '') return false;
 
-    Meteor.call("editList", Session.get('editListId'), text);
+    Meteor.call('editList', Session.get('editListId'), text);
 
     // Clear form
     event.target.text.value = "";
 
     // Prevent default form submit
     return false;
+  },
+  'click .btn-list-user-add': function(event, template) {
+    var email = $('.list-user-add-email').val();
+    var user = Meteor.users.findOne({"emails.address": email});
+    if (user) {
+      var userId = Meteor.users.findOne({"emails.address": email})._id;
+      return Meteor.call('addUserToList', Session.get('editListId'), userId);
+    } else {
+      return false;
+    }
   }
 });
 
