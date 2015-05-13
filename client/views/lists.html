@@ -11,7 +11,12 @@
     {{#each lists}}
       <li class="list-item {{#if isCurrentList _id }}active{{/if}}">
         <a class="list-group-item" href="/lists/{{_id}}">
-          <i class="fa fa-list-ul"></i>
+          {{#if hasMultipleUsers _id }}
+            <i class="fa fa-users"></i>
+          {{else}}
+            <i class="fa fa-list-ul"></i>
+          {{/if}}
+
           {{title}}
         </a>
         {{#if isCurrentList _id }}

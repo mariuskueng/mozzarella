@@ -17,6 +17,16 @@ Template.listsView.helpers({
       return true;
     }
     return false;
+  },
+  hasMultipleUsers: function (listId) {
+    var list = Lists.findOne(listId);
+    if (list.users) {
+      if (list.users.length > 1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 });
 
