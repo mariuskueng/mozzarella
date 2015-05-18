@@ -21,39 +21,10 @@ Template.itemsView.helpers({
   },
   showCompletedItems: function() {
     return Meteor.user().profile.showCompletedItems;
-  },
-  isItemDueDateChanged: function() {
-    return Session.get('itemDueDateChanged');
   }
 });
 
 Template.itemsView.events({
-  "submit .new-item-form": function (event) {
-    // This function is called when the new item form is submitted
-    var controller = Iron.controller();
-    var params = controller.getParams();
-
-    var text = event.target.text.value;
-    if (text === '') return false;
-
-    var newItem = {
-      text: text,
-      dueDate: newItemDueDate,
-      listId: params._id,
-      amount: newItemAmount
-    };
-
-    Meteor.call("addItem", newItem);
-
-    // Clear form
-    event.target.text.value = "";
-    // Clear newItemDueDate
-    newItemDueDate = null;
-    Session.set('itemDueDateChanged', false);
-
-    // Prevent default form submit
-    return false;
-  },
   "click .item-checkbox": function(event) {
     var $Item = $(event.target);
     var itemId = $Item.parent().attr('id');
@@ -88,3 +59,38 @@ Template.itemsView.rendered = function() {
     todayHighlight: true
   });
 };
+
+Template.addItemView.events({
+  "submit .new-item-form": function (event) {
+    // This function is called when the new item form is submitted
+    var controller = Iron.controller();
+    var params = controller.getParams();
+
+    var text = event.target.text.value;
+    if (text === '') return false;
+
+    var newItem = {
+      text: text,
+      dueDate: newItemDueDate,
+      listId: params._id,
+      amount: newItemAmount
+    };
+
+    Meteor.call("addItem", newItem);
+
+    // Clear form
+    event.target.text.value = "";
+    // Clear newItemDueDate
+    newItemDueDate = null;
+    Session.set('itemDueDateChanged', false);
+
+    // Prevent default form submit
+    return false;
+  }
+});
+
+Template.addItemView.helpers({
+  isItemDueDateChanged: function() {
+    return Session.get('itemDueDateChanged');
+  }
+});
