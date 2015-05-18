@@ -54,9 +54,6 @@ Template.itemsView.events({
     // Prevent default form submit
     return false;
   },
-  "click .hide-completed": function () {
-    Session.set("hideCompleted", ! Session.get("hideCompleted"));
-  },
   "click .item-checkbox": function(event) {
     var $Item = $(event.target);
     var itemId = $Item.parent().attr('id');
@@ -70,14 +67,10 @@ Template.itemsView.events({
     }
   },
   'click .items-completed': function() {
-    var items = $('.items-completed-list');
-    if (items.hasClass('hidden')) {
+    if (!Meteor.user().profile.showCompletedItems) {
       Meteor.call('showCompletedItems', true);
-      items.removeClass('hidden').addClass('show');
-    }
-    else {
+    } else {
       Meteor.call('showCompletedItems', false);
-      items.removeClass('show').addClass('hidden');
     }
   },
   'changeDate #item-datepicker': function(e) {

@@ -27,11 +27,13 @@
   {{#unless isGenericList}}
     {{#if completedItems.count}}
       <p class="items-completed">{{ completedItems.count }} used items</p>
-      <div class="items-completed-list {{#if showCompletedItems }} show {{else}} hidden {{/if}}">
+      {{#if showCompletedItems }}
+      <div class="items-completed-list">
         {{#each completedItems}}
          {{> item }}
         {{/each}}
       </div>
+      {{/if}}
     {{/if}}
   {{/unless}}
 
