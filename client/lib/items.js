@@ -92,5 +92,12 @@ Template.addItemView.events({
 Template.addItemView.helpers({
   isItemDueDateChanged: function() {
     return Session.get('itemDueDateChanged');
-  }
+  },
+  food: function() {
+    return TYPEAHEAD_PRESETS.map(function(it) {return it.product; });
+  },
 });
+
+Template.addItemView.rendered = function() {
+  Meteor.typeahead.inject();
+};

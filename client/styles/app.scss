@@ -7,6 +7,7 @@ $white: #fff;
 $gray: #777;
 $red: #e74c3c;
 $blue: #428bca;
+$yellow: #f1c40f;
 $gradient-color: #afc4cb;
 
 $input-text: #bdc3c7;
@@ -244,6 +245,13 @@ body {
     width: 40px;
     // TODO: needs work
     // -webkit-appearance: none;
+  }
+
+  .tt-menu {
+    background-color: $blue;
+    border-radius: 5px;
+    color: $white;
+    padding: 2px 10px;
   }
 }
 

@@ -1,7 +1,8 @@
 <template name="addItemView">
   <form class="new-item-form navbar-form" role="">
     <div class="form-group">
-      <input type="text" name="text" class="form-control item-text" placeholder="Add new item to this list...">
+      <input type="text" name="text" class="form-control item-text typeahead" placeholder="Add new item to this list..."
+      autocomplete="off" spellcheck="off" data-source="food" data-hint="false">
       <select class="form-control item-amount">
         <option>1</option>
         <option>2</option>
