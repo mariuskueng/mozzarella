@@ -2,7 +2,11 @@ Meteor.subscribe('Lists');
 
 Template.listsView.helpers({
   listItemsCount: function (listId) {
-    return Items.find({list: listId}).count();
+    return Items.find({
+      list: listId,
+      completed: false
+      })
+      .count();
   },
   user: function() {
     return Meteor.user();
