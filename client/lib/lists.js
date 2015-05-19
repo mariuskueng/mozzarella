@@ -84,13 +84,13 @@ Template.editListView.events({
   },
   'click .btn-list-user-add': function(event, template) {
     var email = $('.list-user-add-email').val();
-    var user = Meteor.users.findOne({"emails.address": email});
-    if (user) {
-      var userId = Meteor.users.findOne({"emails.address": email})._id;
-      return Meteor.call('addUserToList', Session.get('editListId'), userId);
-    } else {
-      return false;
-    }
+    Meteor.call('getUserIdByEmail', email, function (error, userId) {
+      if (userId) {
+        Meteor.call('addUserToList', Session.get('editListId'), userId);
+      } else {
+        // TODO: throw error
+      }
+    });
   }
 });
 

@@ -5,3 +5,13 @@ Meteor.publish('Lists', function() {
       { createdBy: this.userId }
     ]});
 });
+
+Meteor.methods({
+  'getUserIdByEmail': function(email) {
+    var user = Meteor.users.findOne({'emails.address': email});
+    if (user) {
+      return user._id;
+    }
+    return null;
+  }
+});
