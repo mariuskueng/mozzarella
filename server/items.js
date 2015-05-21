@@ -16,5 +16,4 @@ Meteor.publish('Items', function() {
   });
 
   return items;
-
 });

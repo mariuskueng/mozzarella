@@ -10,7 +10,6 @@ Template.itemsView.helpers({
     var params = controller.getParams();
 
     return Items.find({
-      createdBy: Meteor.userId(),
       list: params._id,
       completed: true
     }, {
