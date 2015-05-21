@@ -56,8 +56,8 @@ Router.route('listsView', {
   },
   data: function() {
     var listId = this.params._id;
-    return {items: Items.find({
-        createdBy: Meteor.userId(),
+    return {
+      items: Items.find({
         list: listId,
         completed: false
       }, {

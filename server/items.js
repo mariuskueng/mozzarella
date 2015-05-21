@@ -1,3 +1,20 @@
 Meteor.publish('Items', function() {
-  return Items.find({createdBy: this.userId});
+  var lists = Lists.find(
+    {
+      $or: [
+        { users: this.userId },
+        { createdBy: this.userId }
+      ]
+    },
+    {
+      _id: 1
+    }
+  ).map(function(list){ return list._id; });
+
+  var items = Items.find({
+    list: {$in: lists}
+  });
+
+  return items;
+
 });
