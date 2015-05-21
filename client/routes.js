@@ -94,7 +94,6 @@ Router.route('allView', {
   data: {
     items: function() {
       return Items.find({
-      createdBy: Meteor.userId(),
       completed: false
       }, {
         sort:{
@@ -119,12 +118,8 @@ Router.route('overDueView', {
       // otherwise don't hold up the rest of hooks or our route/action function
       // from running
       this.next();
-    }
-  },
-  data: {
-    items: function() {
-      return Items.find({
-        createdBy: Meteor.userId(),
+
+      var items = Items.find({
         dueDate: { $lte: new Date().getTime() },
         completed: false
       }, {
@@ -132,6 +127,19 @@ Router.route('overDueView', {
           dueDate: -1,
           createdAt: -1,
 
+        }
+      });
+    }
+  },
+  data: {
+    items: function() {
+      return Items.find({
+        dueDate: { $lte: new Date().getTime() },
+        completed: false
+      }, {
+        sort:{
+          dueDate: -1,
+          createdAt: -1
         }
       });
     },
