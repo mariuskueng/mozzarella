@@ -46,6 +46,7 @@ Router.route('listsView', {
     } else {
       // set the current list before rendering
       Meteor.call('setCurrentList', this.params._id);
+      Session.set('currentList', this.params._id);
       // otherwise don't hold up the rest of hooks or our route/action function
       // from running
       this.next();

@@ -41,10 +41,7 @@ Template.listsView.events({
     }
   },
   'click .list-edit': function(event) {
-    var listId = $(event.target).parent().attr('data-list-id');
-    Session.set('editListId', listId);
-
-    Meteor.call('getListCollaborators', Session.get('editListId'), function(error, response) {
+    Meteor.call('getListCollaborators', Session.get('currentList'), function(error, response) {
       Session.set('ListCollaborators', response);
     });
   }
@@ -67,7 +64,7 @@ Template.addListView.events({
 
 Template.editListView.helpers({
   list: function() {
-    return Lists.findOne(Session.get('editListId'));
+    return Lists.findOne(Session.get('currentList'));
   },
   collaborators: function () {
     return Session.get('ListCollaborators');
@@ -80,7 +77,7 @@ Template.editListView.events({
     var text = event.target.text.value;
     if (text === '') return false;
 
-    Meteor.call('editList', Session.get('editListId'), text);
+    Meteor.call('editList', Session.get('currentList'), text);
 
     // Clear form
     event.target.text.value = "";
@@ -92,8 +89,8 @@ Template.editListView.events({
     var email = $('.list-user-add-email').val();
     Meteor.call('getUserIdByEmail', email, function (error, userId) {
       if (userId) {
-        Meteor.call('addUserToList', Session.get('editListId'), userId, function(error, response) {
-          Meteor.call('getListCollaborators', Session.get('editListId'), function(error, response) {
+        Meteor.call('addUserToList', Session.get('currentList'), userId, function(error, response) {
+          Meteor.call('getListCollaborators', Session.get('currentList'), function(error, response) {
             Session.set('ListCollaborators', response);
           });
         });
