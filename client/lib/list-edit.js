@@ -35,5 +35,10 @@ Template.editListView.events({
         sAlert.error('User ' + email.val() + 'has not been found.');
       }
     });
+  },
+  'click .list-delete': function(event, template) {
+    Meteor.call('removeList', Session.get('currentList'), function(error, listName) {
+      Router.go('/all');
+    });
   }
 });
