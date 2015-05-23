@@ -39,6 +39,12 @@
   margin-bottom: 10px;
   padding: 7.5px 10px;
 
+  &:hover {
+    .item-edit {
+      display: block;
+    }
+  }
+
   p {
     margin-bottom: 5px;
   }
@@ -59,6 +65,11 @@
 
   .item-duedate + .item-amount {
     margin-right: 5px;
+  }
+
+  .item-edit {
+    display: none;
+    margin-left: 10px;
   }
 }
 
