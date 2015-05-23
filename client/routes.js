@@ -43,6 +43,8 @@ Router.route('listsView', {
     if (!Meteor.userId()) {
       // if the user is not logged in, render the Login template
       this.render('homeView');
+    } else if (!Lists.findOne(this.params._id)) {
+      Router.go('/all');
     } else {
       // set the current list before rendering
       Meteor.call('setCurrentList', this.params._id);
