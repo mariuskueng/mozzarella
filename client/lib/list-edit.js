@@ -22,16 +22,17 @@ Template.editListView.events({
     return false;
   },
   'click .btn-list-user-add': function(event, template) {
-    var email = $('.list-user-add-email').val();
-    Meteor.call('getUserIdByEmail', email, function (error, userId) {
+    var email = $('.list-user-add-email');
+    Meteor.call('getUserIdByEmail', email.val(), function (error, userId) {
       if (userId) {
         Meteor.call('addUserToList', Session.get('currentList'), userId, function(error, response) {
           Meteor.call('getListCollaborators', Session.get('currentList'), function(error, response) {
             Session.set('ListCollaborators', response);
+            email.val('');
           });
         });
       } else {
-        // TODO: throw error
+        sAlert.error('User ' + email.val() + 'has not been found.');
       }
     });
   }

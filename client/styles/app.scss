@@ -37,6 +37,10 @@ body {
   }
 }
 
+.s-alert-box {
+  z-index: 2000;
+}
+
 //*****************
 // App Styles
 //*****************
@@ -105,7 +109,7 @@ body {
       .list-group-item {
         color: $white;
 
-        &:hover, 
+        &:hover,
         &:focus {
           background-color: transparent;
         }
