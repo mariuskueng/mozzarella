@@ -1,0 +1,148 @@
+@import 'globals';
+
+//*****************
+// Lists Styles
+//*****************
+
+.lists {
+  background-color: $white;
+  box-shadow: 0 0 2px;
+  padding: 10px 0 20px;
+
+  .dropdown {
+    padding: 0 0 10px;
+  }
+
+  .dropdown-toggle {
+    margin-left: 15px;
+  }
+
+  .list-group {
+    margin-bottom: 100px;
+  }
+
+  .list-item {
+    position: relative;
+
+    &.active {
+      background-color: $blue;
+
+      .list-group-item {
+        color: $white;
+
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+      }
+
+      i {
+        color: $white;
+      }
+    }
+  }
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  display: block;
+  overflow: hidden;
+  padding-right: 30%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+.list-edit,
+.list-item-count {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.list-edit {
+  color: $white;
+  margin-top: 8px;
+
+  + .list-item-count {
+    right: 30px;
+  }
+
+}
+
+.list-item-count {
+  margin: 12px 10px 0;
+}
+
+i {
+  margin: 0 10px 0 0;
+}
+
+.infinity {
+  font: normal normal bold 25px "Helvetica, Arial" sans-serif;
+}
+
+.add-list-button {
+  background-color: $blue;
+  border-radius: 100%;
+  bottom: 20px;
+  color: $white;
+  height: 50px;
+  left: 120px;
+  margin: 0;
+  position: fixed;
+  right: 0;
+  width: 50px;
+  z-index: 1031;
+
+  a {
+    color: $white;
+    display: block;
+    font-size: 45px;
+    font-weight: 200;
+    height: 0;
+    margin-left: -3px;
+    margin-top: -32px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .add-list-button {
+    bottom: -100px;
+    left: 0;
+    margin: 0 0 20px 115px;
+    transition: all .3s 0s ease-out;
+
+    &.visible {
+      bottom: 0;
+    }
+  }
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  z-index: 0;
+}
+
+@media (max-width: 992px) {
+  .lists {
+    bottom: 0 !important;
+    padding: 20px 0 0;
+  }
+
+  .lists,
+  .items {
+    margin-top: 53px;
+  }
+
+  .new-item-form {
+    margin: 0;
+  }
+}

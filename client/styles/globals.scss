@@ -1,0 +1,42 @@
+//*****************
+// Variables
+//*****************
+
+$black: #000;
+$white: #fff;
+$gray: #777;
+$red: #e74c3c;
+$blue: #428bca;
+$yellow: #f1c40f;
+$gradient-color: #afc4cb;
+
+$input-text: #bdc3c7;
+$input-background-color: #646c6d;
+$mobile-portrait: 768px;
+
+//*****************
+// Global Overrides
+//*****************
+
+html,
+body {
+  height: 100%;
+}
+
+.home {
+  .logo {
+    display: block;
+    margin: 50px auto;
+    width: 75%;
+  }
+}
+
+.jumbotron {
+  .dropdown {
+    list-style: none;
+  }
+}
+
+.s-alert-box {
+  z-index: 2000;
+}
