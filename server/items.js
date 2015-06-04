@@ -17,3 +17,17 @@ Meteor.publish('Items', function() {
 
   return items;
 });
+
+Meteor.methods({
+  'getCreator': function(userId){
+
+    if (userId) {
+      var user = Meteor.users.findOne(userId, {fields: {'emails.address': 1}});
+      if (user) {
+        return user.emails[0].address;
+      } else {
+        return null;
+      }
+    }
+  }
+});

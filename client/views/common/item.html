@@ -2,7 +2,7 @@
   <div class="item col-md-12" id="{{_id}}">
     <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
     <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
-    <a href="#" class="item-edit pull-right" data-toggle="offcanvas" data-target="#editItem" data-canvas="body">
+    <a href="#" class="item-edit pull-right">
       <i class="fa fa-pencil"></i>
     </a>
     <label class="item-duedate label label-{{isOverDue dueDate}} pull-right">{{ momentDueDate dueDate }}</label>

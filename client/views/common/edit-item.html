@@ -1,11 +1,12 @@
 <template name="editItemView">
 <section id="editItem" class="edit-item navmenu navmenu-default navmenu-fixed-right offcanvas">
+  {{#with item}}
   <div class="item-header">
     <input class="item-checkbox" type="checkbox">
-    <span class="item-title {{#if completed}}completed{{/if}}">Hackfleisch</span>
+    <span class="item-title {{#if completed}}completed{{/if}}">{{item.title}}</span>
     <div class="item-info">
-      <label class="item-duedate label label-danger">12.12.15</label>
-      <p><i class="fa fa-user"></i> Marius Küng</p>
+      <label class="item-duedate label label-danger">{{getDueDate}}</label>
+      <p><i class="fa fa-user"></i> {{getCreator}}</p>
     </div>
   </div>
   <div class="item-pieces">
@@ -28,5 +29,6 @@
   </div>
   <input type="text" name="text" class="form-control item-text" placeholder="Add new piece to this item...">
   <a href="#" id="item-datepicker" class="item-datepicker"><i class="fa fa-calendar text-muted {{#if isItemDueDateChanged}}text-warning{{/if}}"></i></a>
+  {{/with}}
 </section>
 </template>

@@ -46,8 +46,8 @@ Template.item.helpers({
 });
 
 Template.item.events({
-  'dblclick .item': function(event, template) {
-    // if slide in is already open act differently
-    $('#editItem').offcanvas('toggle');
+  'click .item-edit': function(event, template) {
+    var itemId = event.target.parentNode.parentNode.getAttribute('id');
+    Session.set('currentItem', Items.findOne(itemId));
   }
 });
