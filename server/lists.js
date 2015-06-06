@@ -19,11 +19,9 @@ Meteor.methods({
     var users = [];
     if (currentList) {
       currentList.users.forEach(function (userId) {
-        if (userId !== Meteor.userId()) {
-          var user = Meteor.users.findOne(userId, {fields: {'emails.address': 1}});
-          if (user) {
-            users.push(user.emails[0].address);
-          }
+        var user = Meteor.users.findOne(userId, {fields: {'emails.address': 1}});
+        if (user) {
+          users.push(user.emails[0].address);
         }
       });
       return users;

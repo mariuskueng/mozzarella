@@ -25,7 +25,7 @@
           </div><!-- /input-group -->
           <ul>
             {{#each collaborators }}
-            <li>{{this}}</li>
+            <li>{{#if isListOwner this}}<label class="label label-info">Owner</label>{{/if}} {{this}}</li>
             {{/each}}
           </ul>
         </div>

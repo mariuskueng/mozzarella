@@ -4,6 +4,13 @@ Template.editListView.helpers({
   },
   collaborators: function () {
     return Session.get('ListCollaborators');
+  },
+  isListOwner: function (email) {
+    if (Meteor.user().emails[0].address === email) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 
