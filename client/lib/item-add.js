@@ -1,4 +1,3 @@
-var newItemDueDate = null;
 var newItemAmount = 1;
 
 Template.addItemView.events({
@@ -12,18 +11,18 @@ Template.addItemView.events({
 
     var newItem = {
       text: text,
-      dueDate: newItemDueDate,
+      dueDate: Session.get('newItemDueDate'),
       listId: params._id,
-      amount: newItemAmount
+      amount: Session.get('newItemAmount')
     };
 
     Meteor.call("addItem", newItem);
 
     // Clear form
     event.target.text.value = "";
-    // Clear newItemDueDate
-    newItemDueDate = null;
-    Session.set('itemDueDateChanged', false);
+    // Clear newItemDueDate & newItemAmount
+    Session.set('newItemAmount', 1);
+    Session.set('newItemDueDate', null);
 
     // Prevent default form submit
     return false;
@@ -32,7 +31,7 @@ Template.addItemView.events({
 
 Template.addItemView.helpers({
   isItemDueDateChanged: function() {
-    return Session.get('itemDueDateChanged');
+    return Session.get('newItemDueDate');
   },
   food: function() {
     return TYPEAHEAD_PRESETS.map(function(it) {return it.product; });

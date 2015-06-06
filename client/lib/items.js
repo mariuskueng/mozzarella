@@ -1,7 +1,5 @@
 Meteor.subscribe('Items');
 
-Session.set('itemDueDateChanged', false);
-
 Template.itemsView.helpers({
   completedItems: function() {
     var controller = Iron.controller();
@@ -42,11 +40,10 @@ Template.itemsView.events({
     }
   },
   'changeDate #item-datepicker': function(e) {
-    newItemDueDate = e.date.getTime();
-    Session.set('itemDueDateChanged', true);
+    Session.set('newItemDueDate', e.date.getTime());
   },
   'change .item-amount': function(e) {
-    newItemAmount = ((e.target.value > 1) ? e.target.value : 1);
+    Session.set('newItemAmount', ((e.target.value > 1) ? e.target.value : 1));
   }
 });
 
