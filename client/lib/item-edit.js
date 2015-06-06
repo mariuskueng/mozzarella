@@ -4,7 +4,11 @@ Template.editItemView.helpers({
   },
   getDueDate: function() {
     var item = Session.get('currentItem');
-    return moment(item.dueDate).format('LL');
+    if (item.dueDate) {
+      return moment(item.dueDate).format('LL');
+    } else {
+      return null;
+    }
   },
   getCreator: function(userId) {
     var item = Session.get('currentItem');

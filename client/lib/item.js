@@ -18,11 +18,9 @@ Template.item.helpers({
   momentDueDate: function(dueDate) {
     if (dueDate) {
       var now = new Date().getTime();
-      if (dueDate < now) {
-        return moment(dueDate).fromNow(true);
-      } else {
-        return moment(dueDate).fromNow(true);
-      }
+      return moment(dueDate).fromNow(true);
+    } else {
+      return null;
     }
   },
   isOverDue: function(dueDate) {
