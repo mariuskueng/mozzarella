@@ -12,8 +12,10 @@ Template.editItemView.helpers({
   },
   getCreator: function(userId) {
     var item = Session.get('currentItem');
-    // TODO: async call...
-    return Meteor.call('getCreator', item.createdBy);
+    Meteor.call('getCreator', item.createdBy, function(error, email) {
+      Session.set('itemCreator', email);
+    });
+    return Session.get('itemCreator');
   }
 });
 
