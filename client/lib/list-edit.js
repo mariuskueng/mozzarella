@@ -35,6 +35,7 @@ Template.editListView.events({
         Meteor.call('addUserToList', Session.get('currentList'), userId, function(error, response) {
           Meteor.call('getListCollaborators', Session.get('currentList'), function(error, response) {
             Session.set('ListCollaborators', response);
+            sAlert.success('User ' + email.val() + 'has been added to the list.');
             email.val('');
           });
         });
