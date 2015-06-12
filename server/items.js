@@ -20,7 +20,6 @@ Meteor.publish('Items', function() {
 
 Meteor.methods({
   'getCreator': function(userId){
-
     if (userId) {
       var user = Meteor.users.findOne(userId, {fields: {'emails.address': 1}});
       if (user) {

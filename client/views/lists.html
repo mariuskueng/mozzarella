@@ -1,12 +1,14 @@
 <template name="listsView">
   <ul class="list-group">
+
     {{> loginButtons}}
+
     <li class="list-item {{#if isCurrentList 'all' }}active{{/if}}">
       <a class="list-group-item" href="/all"><i class="infinity text-info">∞</i> All</a>
     </li>
     <li class="list-item {{#if isCurrentList 'over-due' }}active{{/if}}">
       <a class="list-group-item" href="/over-due"><i class="fa fa-exclamation-triangle text-danger"></i>Over Due</a>
-      </li>
+    </li>
 
     {{#each lists}}
       <li class="list-item {{#if isCurrentList _id }}active{{/if}}">
