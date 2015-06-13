@@ -48,5 +48,17 @@ Template.item.events({
     var itemId = event.target.parentNode.parentNode.getAttribute('id');
     Session.set('currentItem', Items.findOne(itemId));
     $('#editItem').offcanvas('show');
+  },
+  'click .item-checkbox': function(event) {
+    var $Item = $(event.target);
+    var itemId = $Item.parent().attr('id');
+
+    if ($Item.is(':checked')) {
+      $Item.prop('checked', true);
+      Meteor.call('setCompleteItem', itemId, true);
+    } else {
+      $Item.prop('checked', false);
+      Meteor.call('setCompleteItem', itemId, false);
+    }
   }
 });

@@ -50,5 +50,17 @@ Template.editItemView.events({
     if ($('#editItem .item-title').hasClass('hidden')) {
       $('#editItem .item-title, #editItem .item-title-edit').toggleClass('hidden');
     }
+  },
+  'click #editItem .item-checkbox': function(event, template) {
+    var $Item = $(event.target);
+    var itemId = Session.get('currentItem')._id;
+
+    if ($Item.is(':checked')) {
+      $Item.prop('checked', true);
+      Meteor.call('setCompleteItem', itemId, true);
+    } else {
+      $Item.prop('checked', false);
+      Meteor.call('setCompleteItem', itemId, false);
+    }
   }
 });

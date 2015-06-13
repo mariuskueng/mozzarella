@@ -20,18 +20,6 @@ Template.itemsView.helpers({
 });
 
 Template.itemsView.events({
-  "click .item-checkbox": function(event) {
-    var $Item = $(event.target);
-    var itemId = $Item.parent().attr('id');
-
-    if ($Item.is(':checked')) {
-      $Item.prop('checked', true);
-      Meteor.call('setCompleteItem', itemId, true);
-    } else {
-      $Item.prop('checked', false);
-      Meteor.call('setCompleteItem', itemId, false);
-    }
-  },
   'click .items-completed': function() {
     if (!Meteor.user().profile.showCompletedItems) {
       Meteor.call('showCompletedItems', true);
