@@ -31,7 +31,7 @@
       <a href="#" data-toggle="modal" data-target="#add-list-modal-dialog">+</a>
     </button>
     {{> navigation}}
-    <section class="items col-md-9 col-xs-12" style="background-image:url({{bgImageUrl}});">
+    <section class="items col-md-9 col-xs-12" style="{{#if bgImageUrl}}background-image:url({{bgImageUrl}});{{/if}}">
       {{> itemsView }}
     </section>
     {{> sAlert}}
