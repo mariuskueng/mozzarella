@@ -20,11 +20,10 @@ Template.editItemView.helpers({
 });
 
 Template.editItemView.rendered = function(){
-  $('.item-datepicker').datepicker({
+  $('#editItem .item-datepicker').datepicker({
     autoclose: true,
     todayHighlight: true
   });
-
 };
 
 Template.editItemView.events({
@@ -43,15 +42,18 @@ Template.editItemView.events({
 
     return false;
   },
-  'changeDate .item-datepicker': function(e) {
-    Session.set('newItemDueDate', e.date.getTime());
+  'changeDate #editItem .item-header .item-datepicker': function(e) {
+    var item = Session.get('currentItem');
+    item.dueDate = e.date.getTime();
+    Meteor.call('editItem', item);
+    return false;
   },
   'hidden.bs.offcanvas #editItem': function(e) {
     if ($('#editItem .item-title').hasClass('hidden')) {
       $('#editItem .item-title, #editItem .item-title-edit').toggleClass('hidden');
     }
   },
-  'click #editItem .item-checkbox': function(event, template) {
+  'click #editItem .item-header .item-checkbox': function(event, template) {
     var $Item = $(event.target);
     var itemId = Session.get('currentItem')._id;
 
