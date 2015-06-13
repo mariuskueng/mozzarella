@@ -120,17 +120,6 @@ Router.route('overDueView', {
       // otherwise don't hold up the rest of hooks or our route/action function
       // from running
       this.next();
-
-      var items = Items.find({
-        dueDate: { $lte: new Date().getTime() },
-        completed: false
-      }, {
-        sort:{
-          dueDate: -1,
-          createdAt: -1,
-
-        }
-      });
     }
   },
   data: {

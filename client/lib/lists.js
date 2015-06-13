@@ -8,6 +8,26 @@ Template.listsView.helpers({
       })
       .count();
   },
+  allItemsCount: function() {
+    return Items.find({
+      completed: false
+      }, {
+        sort:{
+          createdAt: -1
+        }
+    }).count();
+  },
+  overDueItemsCount: function() {
+    return Items.find({
+      dueDate: { $lte: new Date().getTime() },
+      completed: false
+      }, {
+        sort:{
+          dueDate: -1,
+          createdAt: -1
+        }
+    }).count();
+  },
   user: function() {
     return Meteor.user();
   },
