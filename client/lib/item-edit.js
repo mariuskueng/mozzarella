@@ -50,4 +50,9 @@ Template.editItemView.events({
   'changeDate .item-datepicker': function(e) {
     Session.set('newItemDueDate', e.date.getTime());
   },
+  'hidden.bs.offcanvas #editItem': function(e) {
+    if ($('#editItem .item-title').hasClass('hidden')) {
+      $('#editItem .item-title, #editItem .item-title-edit').toggleClass('hidden');
+    }
+  }
 });
