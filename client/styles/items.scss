@@ -89,6 +89,19 @@
     font-weight: bold;
     margin-left: 10px;
   }
+
+  .item-title-edit {
+    display: inline-block;
+    margin-left: 10px;
+    width: 240px;
+  }
+
+  .item-edit-save {
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+  }
+
 }
 
 .new-item-form {
