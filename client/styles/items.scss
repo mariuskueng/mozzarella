@@ -6,6 +6,8 @@
 
 .items {
   background: -webkit-gradient(linear, left top, left bottom, from($gradient-color), to($white));
+  background-position: center;
+  background-size: cover;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -119,13 +121,13 @@
   }
 
   .item-amount {
-    background-color: $input-background-color;
+    background-color: transparent;
     border: 0;
     color: $input-text;
     display: inline-block;
     height: 30px;
     position: absolute;
-    right: 45px;
+    right: 55px;
     top: 7px;
     width: 40px;
     // TODO: needs work
