@@ -20,12 +20,6 @@ Template.editItemView.helpers({
 });
 
 Template.editItemView.rendered = function(){
-  this.autorun(function(c) {
-    if (Session.get('currentItem')) {
-      $('#editItem').offcanvas('show');
-    }
-  });
-
   $('.item-datepicker').datepicker({
     autoclose: true,
     todayHighlight: true
@@ -43,7 +37,9 @@ Template.editItemView.events({
     var form = event.target;
     item.title = form.itemTitleEdit.value;
 
-    Meteor.call('editItem', item);
+    Meteor.call('editItem', item, function(error, result) {
+      $('#editItem').offcanvas('hide');
+    });
 
     return false;
   },

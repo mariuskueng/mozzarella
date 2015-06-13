@@ -47,5 +47,6 @@ Template.item.events({
   'click .item-edit': function(event, template) {
     var itemId = event.target.parentNode.parentNode.getAttribute('id');
     Session.set('currentItem', Items.findOne(itemId));
+    $('#editItem').offcanvas('show');
   }
 });
