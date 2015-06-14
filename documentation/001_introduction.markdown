@@ -24,3 +24,4 @@ In the first version the following features will be implemented:
 Future improvements:
 
 - **Item notifications** If a user makes a CRUD-action on items in a shared list all other users are getting notified about the recent changes.
+- **UX improvements** There is still a lot of stuff to fix.
