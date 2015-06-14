@@ -11,9 +11,7 @@ Template.settings.helpers({
 
 Template.settings.events({
   'submit #form-settings': function(event, template){
-    console.log(event.target);
     var bgImageUrl = event.target.backgroundImage.value;
-    console.log(bgImageUrl);
 
     Meteor.call('setUserBackgroundImage', bgImageUrl, function(error, response) {
       Session.set('bgImageUrl', bgImageUrl);
