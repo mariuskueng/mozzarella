@@ -57,5 +57,10 @@ Template.editItemView.events({
       $Item.prop('checked', false);
       Meteor.call('setCompleteItem', itemId, false);
     }
+  },
+  'click .item-delete': function(event, template) {
+    Meteor.call('removeItem', Session.get('currentItem')._id, function(error, result) {
+      itemEditOffCanvas.offcanvas('hide');
+    });
   }
 });
