@@ -19,7 +19,9 @@ Router.configure({
   // the data it's expecting is present
   waitOn: function() {
     return [
-      Meteor.subscribe('Lists')
+      Meteor.subscribe('Lists'),
+      Meteor.subscribe('Items'),
+      Meteor.subscribe('Pieces')
     ];
   }
 });

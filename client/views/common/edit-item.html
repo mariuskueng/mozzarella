@@ -17,8 +17,8 @@
 
   <div class="item-pieces">
     <h4>3 pieces</h4>
-    {{#each item.pieces}}
-      <div class="piece">
+    {{#each getPieces}}
+      <div class="piece" id="{{_id}}">
         <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
         <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
         <label class="item-duedate label label-danger pull-right">{{getPieceDueDate dueDate}}</label>

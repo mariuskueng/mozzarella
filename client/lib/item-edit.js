@@ -29,6 +29,12 @@ Template.editItemView.helpers({
       return true;
     }
     return false;
+  },
+  getPieces: function() {
+    var item = Session.get('currentItem');
+    return Pieces.find({
+      item: item._id
+    });
   }
 });
 
@@ -86,11 +92,24 @@ Template.editItemView.events({
       completed: false
     };
 
-    Meteor.call('addItemPiece', itemId, piece, function(error, result) {
-      Session.set('currentItem', Items.findOne(itemId));
+    Meteor.call('addPiece', piece, itemId, function(error, result) {
+      // Session.set('currentItem', Items.findOne(itemId));
       event.target.text.value = "";
     });
 
     return false;
+  },
+  'click .piece .item-checkbox': function(event, template) {
+    var $Item = $(event.target);
+    var itemId = Session.get('currentItem')._id;
+    var pieceId = $Item.parent().attr('id');
+
+    if ($Item.is(':checked')) {
+      $Item.prop('checked', true);
+      Meteor.call('setCompleteItemPiece', itemId, pieceId, true);
+    } else {
+      $Item.prop('checked', false);
+      Meteor.call('setCompleteItemPiece', itemId, pieceId, false);
+    }
   }
 });
