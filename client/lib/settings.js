@@ -4,7 +4,8 @@ Template.settings.helpers({
       return Session.get('bgImageUrl');
     } else {
       var user = Meteor.user();
-      return user.profile.backgroundImage;
+      if (user && user.profile.backgroundImage)
+        return user.profile.backgroundImage;
     }
   }
 });
