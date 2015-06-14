@@ -30,7 +30,7 @@ Template.editItemView.events({
     item.title = form.itemTitleEdit.value;
 
     Meteor.call('editItem', item, function(error, result) {
-      $('#editItem').offcanvas('hide');
+      itemEditOffCanvas.offcanvas('hide');
     });
 
     return false;

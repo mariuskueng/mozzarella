@@ -53,7 +53,7 @@ Template.item.events({
       todayHighlight: true
     });
 
-    $('#editItem').offcanvas('show');
+    itemEditOffCanvas.offcanvas('show');
   },
   'click .item-checkbox': function(event) {
     var $Item = $(event.target);

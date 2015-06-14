@@ -1,5 +1,7 @@
 Meteor.subscribe('Items');
 
+itemEditOffCanvas = null;
+
 Template.itemsView.helpers({
   completedItems: function() {
     var controller = Iron.controller();
@@ -39,5 +41,11 @@ Template.itemsView.rendered = function() {
   $('.item-datepicker').datepicker({
     autoclose: true,
     todayHighlight: true
+  });
+
+  itemEditOffCanvas = $('#editItem').offcanvas({
+    'autohide': false,
+    'toggle': false,
+    'canvas': 'body'
   });
 };
