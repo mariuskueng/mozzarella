@@ -8,7 +8,8 @@
       <span class="item-title">{{item.title}}</span>
       <input name="itemTitleEdit" class="form-control item-title-edit hidden" value="{{item.title}}">
       <div class="item-info">
-        <label class="item-duedate item-datepicker label label-danger">{{getDueDate}}</label>
+        <a href="#" class="item-datepicker"><i class="fa fa-calendar text-muted"></i></a>
+        <label class="item-duedate label label-{{isOverDue dueDate}}">{{getDueDate}}</label>
         <p><i class="fa fa-user"></i> {{getCreator}}</p>
       </div>
     </div>

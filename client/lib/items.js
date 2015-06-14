@@ -45,7 +45,6 @@ Template.itemsView.rendered = function() {
 
   itemEditOffCanvas = $('#editItem').offcanvas({
     'autohide': false,
-    'toggle': false,
-    'canvas': 'body'
+    'toggle': false
   });
 };

@@ -3,11 +3,27 @@ Template.editItemView.helpers({
     return Session.get('currentItem');
   },
   getDueDate: function() {
-    var item = Session.get('currentItem');
-    if (item.dueDate) {
-      return moment(item.dueDate).format('LL');
+    if (Session.get('editItemDueDate')) {
+      return moment(Session.get('editItemDueDate')).format('LL');
     } else {
-      return null;
+      var item = Session.get('currentItem');
+      if (item && item.dueDate) {
+        return moment(item.dueDate).format('LL');
+      } else {
+        return null;
+      }
+    }
+  },
+  isOverDue: function(dueDate) {
+    var momentNow = moment(new Date());
+    var momentDueDate = moment(dueDate);
+
+    if (momentDueDate > momentNow) {
+      return 'success';
+    } else if (momentNow.diff(momentDueDate, 'weeks') < 1){
+      return 'warning';
+    } else {
+      return 'danger';
     }
   },
   getCreator: function(userId) {
@@ -28,17 +44,20 @@ Template.editItemView.events({
     var item = Session.get('currentItem');
     var form = event.target;
     item.title = form.itemTitleEdit.value;
+    if (Session.get('editItemDueDate'))
+      item.dueDate = Session.get('editItemDueDate');
 
     Meteor.call('editItem', item, function(error, result) {
       itemEditOffCanvas.offcanvas('hide');
+      Session.set('editItemDueDate', null);
+      Session.set('currentItem', null);
+      Session.set('getCreator', null);
     });
 
     return false;
   },
   'changeDate #editItem .item-header .item-datepicker': function(e) {
-    var item = Session.get('currentItem');
-    item.dueDate = e.date.getTime();
-    Meteor.call('editItem', item);
+    Session.set('editItemDueDate', e.date.getTime());
     return false;
   },
   'hidden.bs.offcanvas #editItem': function(e) {
@@ -64,3 +83,10 @@ Template.editItemView.events({
     });
   }
 });
+
+Template.editItemView.rendered = function() {
+  $('#editItem .item-datepicker').datepicker({
+    autoclose: true,
+    todayHighlight: true
+  });
+};
