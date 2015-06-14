@@ -10,44 +10,13 @@ Template.editItemView.helpers({
       return null;
     }
   },
-  getPieceDueDate: function(dueDate) {
-    if (dueDate) {
-      return moment(dueDate).format('LL');
-    } else {
-      return null;
-    }
-  },
   getCreator: function(userId) {
     var item = Session.get('currentItem');
     Meteor.call('getCreator', item.createdBy, function(error, email) {
       Session.set('itemCreator', email);
     });
     return Session.get('itemCreator');
-  },
-  newItemPieceDueDateChanged: function() {
-    if (Session.get('newItemPieceDueDate')) {
-      return true;
-    }
-    return false;
-  },
-  getPieces: function() {
-    var item = Session.get('currentItem');
-    return Pieces.find({
-      item: item._id
-    });
-  },
-  isOverDue: function(dueDate) {
-    var momentNow = moment(new Date());
-    var momentDueDate = moment(dueDate);
-
-    if (momentDueDate > momentNow) {
-      return 'success';
-    } else if (momentNow.diff(momentDueDate, 'weeks') < 1){
-      return 'warning';
-    } else {
-      return 'danger';
-    }
-  },
+  }
 });
 
 Template.editItemView.events({
@@ -72,9 +41,6 @@ Template.editItemView.events({
     Meteor.call('editItem', item);
     return false;
   },
-  'changeDate #editItem .add-item-piece .item-datepicker': function(e) {
-    Session.set('newItemPieceDueDate', e.date.getTime());
-  },
   'hidden.bs.offcanvas #editItem': function(e) {
     if ($('#editItem .item-title').hasClass('hidden')) {
       $('#editItem .item-title, #editItem .item-title-edit').toggleClass('hidden');
@@ -90,39 +56,6 @@ Template.editItemView.events({
     } else {
       $Item.prop('checked', false);
       Meteor.call('setCompleteItem', itemId, false);
-    }
-  },
-  'submit #item-add-piece': function(event, template) {
-    var itemId = Session.get('currentItem')._id;
-
-    if (!event.target.text.value)
-      return false;
-
-    var piece = {
-      text: event.target.text.value,
-      dueDate: Session.get('newItemPieceDueDate'),
-      completed: false
-    };
-
-    Meteor.call('addPiece', piece, itemId, function(error, result) {
-      // Session.set('currentItem', Items.findOne(itemId));
-      event.target.text.value = "";
-      Session.set('newItemPieceDueDate', null);
-    });
-
-    return false;
-  },
-  'click .piece .item-checkbox': function(event, template) {
-    var $Item = $(event.target);
-    var itemId = Session.get('currentItem')._id;
-    var pieceId = $Item.parent().attr('id');
-
-    if ($Item.is(':checked')) {
-      $Item.prop('checked', true);
-      Meteor.call('setCompletePiece', pieceId, true);
-    } else {
-      $Item.prop('checked', false);
-      Meteor.call('setCompletePiece', pieceId, false);
     }
   }
 });

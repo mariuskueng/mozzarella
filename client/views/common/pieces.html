@@ -1,0 +1,19 @@
+<template name="pieces">
+  <div class="item-pieces">
+    <h4>{{getPiecesCount}} pieces</h4>
+    {{#each getPieces}}
+      <div class="piece" id="{{_id}}">
+        <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
+        <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
+        <label class="item-duedate label label-{{isOverDue dueDate}} pull-right">{{getPieceDueDate dueDate}}</label>
+      </div>
+    {{/each}}
+  </div>
+
+  <form id="item-add-piece">
+    <div class="add-item-piece">
+      <input type="text" name="text" class="form-control item-text" placeholder="Add new piece to this item...">
+      <a href="#" class="item-datepicker"><i class="fa fa-calendar text-muted {{#if newItemPieceDueDateChanged}}text-warning{{/if}}"></i></a>
+    </div>
+    </form>
+</template>
