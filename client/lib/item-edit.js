@@ -35,7 +35,19 @@ Template.editItemView.helpers({
     return Pieces.find({
       item: item._id
     });
-  }
+  },
+  isOverDue: function(dueDate) {
+    var momentNow = moment(new Date());
+    var momentDueDate = moment(dueDate);
+
+    if (momentDueDate > momentNow) {
+      return 'success';
+    } else if (momentNow.diff(momentDueDate, 'weeks') < 1){
+      return 'warning';
+    } else {
+      return 'danger';
+    }
+  },
 });
 
 Template.editItemView.events({
@@ -95,6 +107,7 @@ Template.editItemView.events({
     Meteor.call('addPiece', piece, itemId, function(error, result) {
       // Session.set('currentItem', Items.findOne(itemId));
       event.target.text.value = "";
+      Session.set('newItemPieceDueDate', null);
     });
 
     return false;
@@ -106,10 +119,10 @@ Template.editItemView.events({
 
     if ($Item.is(':checked')) {
       $Item.prop('checked', true);
-      Meteor.call('setCompleteItemPiece', itemId, pieceId, true);
+      Meteor.call('setCompletePiece', pieceId, true);
     } else {
       $Item.prop('checked', false);
-      Meteor.call('setCompleteItemPiece', itemId, pieceId, false);
+      Meteor.call('setCompletePiece', pieceId, false);
     }
   }
 });

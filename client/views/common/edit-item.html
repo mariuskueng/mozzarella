@@ -21,7 +21,7 @@
       <div class="piece" id="{{_id}}">
         <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
         <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
-        <label class="item-duedate label label-danger pull-right">{{getPieceDueDate dueDate}}</label>
+        <label class="item-duedate label label-{{isOverDue dueDate}} pull-right">{{getPieceDueDate dueDate}}</label>
       </div>
     {{/each}}
   </div>
