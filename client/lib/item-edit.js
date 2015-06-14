@@ -10,6 +10,13 @@ Template.editItemView.helpers({
       return null;
     }
   },
+  getPieceDueDate: function(dueDate) {
+    if (dueDate) {
+      return moment(dueDate).format('LL');
+    } else {
+      return null;
+    }
+  },
   getCreator: function(userId) {
     var item = Session.get('currentItem');
     Meteor.call('getCreator', item.createdBy, function(error, email) {
@@ -69,11 +76,16 @@ Template.editItemView.events({
   },
   'submit #item-add-piece': function(event, template) {
     var itemId = Session.get('currentItem')._id;
+
+    if (!event.target.text.value)
+      return false;
+
     var piece = {
       text: event.target.text.value,
       dueDate: Session.get('newItemPieceDueDate'),
       completed: false
     };
+
     Meteor.call('addItemPiece', itemId, piece, function(error, result) {
       Session.set('currentItem', Items.findOne(itemId));
       event.target.text.value = "";
