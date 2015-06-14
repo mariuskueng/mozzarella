@@ -47,6 +47,12 @@ Template.item.events({
   'click .item-edit': function(event, template) {
     var itemId = event.target.parentNode.parentNode.getAttribute('id');
     Session.set('currentItem', Items.findOne(itemId));
+
+    $('#editItem .item-datepicker').datepicker({
+      autoclose: true,
+      todayHighlight: true
+    });
+
     $('#editItem').offcanvas('show');
   },
   'click .item-checkbox': function(event) {

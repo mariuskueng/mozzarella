@@ -19,13 +19,6 @@ Template.editItemView.helpers({
   }
 });
 
-Template.editItemView.rendered = function(){
-  $('#editItem .item-datepicker').datepicker({
-    autoclose: true,
-    todayHighlight: true
-  });
-};
-
 Template.editItemView.events({
   'dblclick .item-title': function(event, template) {
     $('#editItem .item-title, #editItem .item-title-edit').toggleClass('hidden');

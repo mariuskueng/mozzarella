@@ -82,7 +82,7 @@
 }
 
 .edit-item {
-
+  box-shadow: 0 0 2px;
   padding: 15px;
 
   .item-title {
@@ -102,6 +102,9 @@
     position: absolute;
   }
 
+  .item-duedate {
+    cursor: pointer;
+  }
 }
 
 .new-item-form {

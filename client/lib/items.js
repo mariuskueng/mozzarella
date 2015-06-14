@@ -27,7 +27,7 @@ Template.itemsView.events({
       Meteor.call('showCompletedItems', false);
     }
   },
-  'changeDate .item-datepicker': function(e) {
+  'changeDate .new-item-form .item-datepicker': function(e) {
     Session.set('newItemDueDate', e.date.getTime());
   },
   'change .item-amount': function(e) {
