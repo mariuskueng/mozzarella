@@ -105,6 +105,17 @@
   .item-duedate {
     cursor: pointer;
   }
+
+  .add-item-piece {
+    position: relative;
+
+    .item-datepicker {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+
 }
 
 .new-item-form {

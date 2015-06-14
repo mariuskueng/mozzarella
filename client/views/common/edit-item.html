@@ -1,6 +1,7 @@
 <template name="editItemView">
 <section id="editItem" class="edit-item navmenu navmenu-default navmenu-fixed-right offcanvas">
   {{#with item}}
+
   <form id="item-edit">
     <div class="item-header">
       <input class="item-checkbox" type="checkbox">
@@ -11,30 +12,27 @@
         <p><i class="fa fa-user"></i> {{getCreator}}</p>
       </div>
     </div>
-    <div class="item-pieces">
-      <h4>3 pieces</h4>
-      <div class="piece">
-        <input class="item-checkbox" type="checkbox">
-        <span class="item-title {{#if completed}}completed{{/if}}">500g</span>
-        <label class="item-duedate label label-danger pull-right">12.12.14</label>
-      </div>
-      <div class="piece">
-        <input class="item-checkbox" type="checkbox">
-        <span class="item-title {{#if completed}}completed{{/if}}">200g</span>
-        <label class="item-duedate label label-warning pull-right">01.05.15</label>
-      </div>
-      <div class="piece">
-        <input class="item-checkbox" type="checkbox">
-        <span class="item-title {{#if completed}}completed{{/if}}">1000g</span>
-        <label class="item-duedate label label-success pull-right">12.12.15</label>
-      </div>
-    </div>
-    <input type="text" name="text" class="form-control item-text" placeholder="Add new piece to this item...">
-    <a href="#" id="item-datepicker" class="item-datepicker"><i class="fa fa-calendar text-muted {{#if isItemDueDateChanged}}text-warning{{/if}}"></i></a>
-
     <input type="submit" class="btn btn-primary item-edit-save" value="Save changes">
-
   </form>
+
+  <div class="item-pieces">
+    <h4>3 pieces</h4>
+    {{#each item.pieces}}
+      <div class="piece">
+        <input class="item-checkbox" type="checkbox" checked="{{#if completed}}checked{{/if}}">
+        <span class="item-title {{#if completed}}completed{{/if}}">{{title}}</span>
+        <label class="item-duedate label label-danger pull-right">{{dueDate}}</label>
+      </div>
+    {{/each}}
+  </div>
+
+  <form id="item-add-piece">
+    <div class="add-item-piece">
+      <input type="text" name="text" class="form-control item-text" placeholder="Add new piece to this item...">
+      <a href="#" class="item-datepicker"><i class="fa fa-calendar text-muted {{#if newItemPieceDueDateChanged}}text-warning{{/if}}"></i></a>
+    </div>
+  </form>
+
   {{/with}}
 </section>
 </template>
