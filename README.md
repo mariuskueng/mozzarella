@@ -40,3 +40,18 @@ Open `http://localhost:3000` in your browser.
 This project is built with [Meteor](https://www.meteor.com). Meteor is a complete open source platform
 for building web and mobile apps
 in pure JavaScript.
+
+## Improvements
+
+- [ ] #feature Sortable Lists & Items https://atmospherejs.com/rubaxa/sortable
+- [ ] #improvement Auto-select list after create
+- [ ] #improvement loading animation
+- [ ] #improvement Schema package
+- [ ] #improvement #feature i18n
+- [ ] #bug edit list session not set (mobile)
+- [ ] #testing Cucumber end-to-end tests
+- [ ] #bug typeahead input field
+- [ ] #bug edit item view empty
+- [ ] #bug datepicker not always instanciated
+- [ ] #feature Replace Flat UI with Material Design
+- [ ] #bug Items in newly created list disappear unless window reload
